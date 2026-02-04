@@ -1,0 +1,503 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #111;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+*/
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background-color: #ffffff;
+  line-height: 1.65;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+p {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* ================= VARIABLES ================= */
+/*:root {
+  --dark: #0f172a;
+  --text: #111;
+  --muted: #555;
+  --light: #f6f7f9;
+  --border: #e6e6e6;
+
+  --gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}*/
+:root {
+  --black: #0b0f14;
+  --charcoal: #111827;
+  --dark: #0f172a;
+  --mid-dark: #1f2933;
+  --slate: #334155;
+
+  --text-light: #e5e7eb;
+  --text-muted-light: #9ca3af;
+
+  --gradient-dark: linear-gradient(
+    135deg,
+    #0b0f14,
+    #111827,
+    #0f2027
+  );
+}
+
+
+/* ================= GLOBAL ================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section-light {
+  background-color: var(--light);
+}
+
+/*h1, h2, h3, h4 {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+h1 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}*/
+
+/*.section-intro {
+  max-width: 640px;
+  margin-bottom: 24px;
+}*/
+/*.section p,*/
+.section-intro {
+  max-width: 600px;
+}
+
+/* ================= HEADER ================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, #0b0f14, #111827, #0f2027);
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.logo img {
+  height: 28px;
+  filter: brightness(0) invert(1); /* placeholder logo white */
+}
+
+/*.site-header {
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}*/
+
+/* ================= HAMBURGER ================= */
+.menu-toggle {
+  width: 28px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 2px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+/* ================= OVERLAY MENU ================= */
+.overlay-menu {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11,15,20,0.92),
+    rgba(15,32,39,0.92)
+  );
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.overlay-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-menu ul {
+  list-style: none;
+  text-align: center;
+}
+
+.overlay-menu li {
+  margin: 20px 0;
+}
+
+.overlay-menu a {
+  position: relative;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  padding-bottom: 6px;
+}
+
+.overlay-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ffffff, #94a3b8);
+  transition: width 0.3s ease;
+}
+
+.overlay-menu a:hover::after {
+  width: 100%;
+}
+
+/* ================= OVERLAY CLOSE BUTTON ================= */
+.menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.6rem;
+  font-weight: 300;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.menu-close:hover {
+  opacity: 0.55;
+}
+
+/* ================= HAMBURGER ANIMATION ================= */
+.menu-toggle span {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  padding: 120px 0 140px;
+  overflow: hidden;
+  background: var(--gradient-dark);
+  color: var(--text-light);
+  /*background: #ffffff;*/
+}
+
+.hero h1,
+.hero p {
+  color: var(--text-light);
+}
+
+/* depth layer */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15,23,42,0.12),
+      rgba(15,23,42,0.02) 40%,
+      transparent 70%
+    );
+  pointer-events: none;
+}
+
+/* bottom fade divider */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,1)
+  );
+}
+
+.hero-content {
+  position: relative;
+  max-width: 760px;
+}
+
+/* visual anchor line */
+.hero-content::before {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-bottom: 24px;
+  background: var(--gradient);
+}
+
+
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.grid-3,
+.grid-4 {
+  grid-template-columns: 1fr;
+}
+
+/* ================= CARDS ================= */
+.card {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.leader-card {
+  text-align: center;
+}
+
+.leader-photo {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* ================= WORK PLACEHOLDERS ================= */
+/* ================= WORK EDITORIAL ================= */
+.work-editorial {
+  display: grid;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.work-item {
+  height: 220px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+  background:
+    linear-gradient(
+      135deg,
+      #e5e7eb,
+      #f1f5f9
+    );
+}
+
+.work-item:nth-child(2) {
+  background: linear-gradient(135deg, #eef2f7, #e5e7eb);
+}
+
+.work-item:nth-child(3) {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+}
+
+
+.work-item.large {
+  height: 360px;
+}
+
+@media (min-width: 768px) {
+  .work-editorial {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .work-item.large {
+    grid-row: span 2;
+    height: 100%;
+  }
+}
+
+/*.placeholder-grid {
+  margin-top: 24px;
+}
+
+.placeholder-box {
+  height: 180px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e5e7eb, #f1f5f9);
+}*/
+
+/* ================= CONTACT ================= */
+.contact-box {
+  text-align: center;
+}
+
+.contact-details {
+  margin-top: 16px;
+}
+
+.contact-details a {
+  color: var(--dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ================= FOOTER ================= */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero {
+    padding: 120px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 96px 0;
+  }
+}
+
+
+.section > .container > h2 {
+  margin-bottom: 12px;
+}
+
+.section > .container > p,
+.section-intro {
+  margin-bottom: 32px;
+}
+
+.card p {
+  margin-top: 8px;
+}
+
+.leader-card span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.card {
+  padding: 28px;
+}
