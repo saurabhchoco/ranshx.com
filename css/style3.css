@@ -9,19 +9,11 @@ html {
   scroll-behavior: smooth;
 }
 
-/*body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  color: #111;
-  background-color: #ffffff;
-  line-height: 1.6;
-}
-*/
-
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--text);
   background-color: #ffffff;
-  line-height: 1.65;
+  line-height: 1.50; /* 1.65 earlier*/
 }
 
 h1 {
@@ -90,33 +82,14 @@ p {
   background-color: var(--light);
 }
 
-/*h1, h2, h3, h4 {
-  font-weight: 600;
-  color: var(--dark);
-}
-
-h1 {
-  font-size: 2.2rem;
-  line-height: 1.2;
-}
-
-h2 {
-  font-size: 1.7rem;
-  margin-bottom: 12px;
-}
-
-p {
-  color: var(--muted);
-  font-size: 0.95rem;
-}*/
-
-/*.section-intro {
-  max-width: 640px;
-  margin-bottom: 24px;
-}*/
-/*.section p,*/
 .section-intro {
   max-width: 600px;
+}
+
+.section-marker {
+  width: 2px;
+  height: 56px;
+  background: linear-gradient(to bottom, #111, transparent);
 }
 
 /* ================= HEADER ================= */
@@ -296,11 +269,11 @@ p {
 
 .hero h1,
 .hero p {
-  color: var(--text-light);
+  color: var(--gradient-dark);
 }
 
 /* depth layer */
-.hero::before {
+/*.hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -312,10 +285,10 @@ p {
       transparent 70%
     );
   pointer-events: none;
-}
+*/}
 
 /* bottom fade divider */
-.hero::after {
+/*.hero::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -327,7 +300,7 @@ p {
     rgba(255,255,255,0),
     rgba(255,255,255,1)
   );
-}
+}*/
 
 .hero-content {
   position: relative;
@@ -356,8 +329,8 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.35;
-  filter: saturate(0.9) contrast(1.05);
+  opacity: 0.55;
+  filter: saturate(1.05) contrast(1.08);
   z-index: 0;
 }
 
@@ -474,13 +447,15 @@ p {
 }
 
 .service-card.featured {
+  transform: translateY(-16px);
   background: linear-gradient(
     135deg,
     #1b2533,
     #0f172a
   );
   box-shadow:
-    0 48px 90px rgba(0,0,0,0.55),
+    /*0 48px 90px rgba(0,0,0,0.55),*/
+    0 39px 80px rgba(0,0,0,0.25),
     inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
@@ -706,7 +681,7 @@ p {
   }
   .who-video.horizontal {
     transform: translateX(-32px) scale(1.02);
-    aspect-ratio: ¡5 / 9;
+    aspect-ratio: 15 / 9;
   }
   .who-we-are {
     background: linear-gradient(
@@ -881,6 +856,15 @@ p {
     padding-top: 96px;
     border-radius: 24px 24px 0 0;
   }
+  .hero-parallax {
+    position: relative;
+    height: auto;
+  }
+
+  .who-parallax {
+    margin-top: 0;
+    padding-top: 80px;
+  }
 }
 
 .who-content p {
@@ -896,7 +880,7 @@ p {
   /*background: #f59e0b;*/
   position: relative;
   margin-top: -80px;
-  padding-top: 140px;
+  padding-top: 100px; /* 140 earlier */
   z-index: 1;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
@@ -958,7 +942,7 @@ p {
 .who-video.horizontal video {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;   /* 🔑 KEY LINE */
   filter: grayscale(100%) contrast(1.1) brightness(0.95);
 }
@@ -974,4 +958,35 @@ p {
     rgba(11,15,20,0.65) 100%
   );
   pointer-events: none;
+}
+
+.hero-parallax {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.who-parallax {
+  position: relative;
+  z-index: 2;
+  margin-top: -28vh;
+  padding-top: 140px;
+}
+
+.hero video {
+  transition: filter 0.3s ease;
+}
+
+.hero.parallax-active video {
+  filter: brightness(0.85) contrast(1.05);
+}
+
+.team-card:hover img {
+  transform: scale(1.04);
+}
+
+.team-card:hover {
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
 }
