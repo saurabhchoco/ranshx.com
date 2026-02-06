@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSX RanShX Global</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="logo">
+                <!-- <img src="assets/images/rsx-logo.png" alt="RSX Logo" /> -->
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="overlay-menu" id="overlayMenu">
+                <button class="menu-close" id="menuClose" aria-label="Close menu">
+                    &times;
+                </button>
+                <ul>
+                    <li><a href="#who">Who We Are</a></li>
+                    <li><a href="#what">What We Do</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#leadership">The TEAM</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- ================= HERO ================= -->
+    <section class="hero hero-parallax">
+        <div class="hero" id="hero"><video class="hero-video" autoplay muted loop playsinline>
+                <source src="assets/videos/rsx-hero-bg.mp4" type="video/mp4" />
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <!-- <h1>Building Brands, Experiences & Businesses</h1> -->
+                <h1>Strategy Executed.<br />Growth Delivered</h1>
+                <p>
+                    <!-- Strategy-led execution across hospitality, events, branding, and technology. -->
+                    RSX operates at the intersection of strategy, execution, creativity,
+                    technology, people, and governance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="section-stack">
+
+    <!-- ================= WHO WE ARE ================= -->
+    <section id="who" class="section section-who-v2 stack-section">
+        <div class="container who-grid">
+            <div class="who-left">
+                <span class="eyebrow">Who We Are</span>
+                <h2>
+                    An Integrated Partner<br />
+                    Built for Execution
+                </h2>
+            </div>
+            <div class="who-divider"></div>
+            <div class="who-right">
+                <p class="definition">
+                    RSX is an integrated operating group that aligns strategy,
+                    execution, governance, and accountability under one structure.
+                </p>
+                <p>
+                    We work with founders, operators, and institutions who need
+                    clarity, control, and measurable outcomes — not fragmented
+                    advisors or disconnected execution teams.
+                </p>
+                <p>
+                    Our role is simple: manage complexity so leadership can
+                    focus on growth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION BAND
+     ================= -->
+
+
+    <div class="section-transition"></div>
+
+    <!-- ================= THE MARKET REALITY ================= -->
+    <section class="section section-reality stack-section">
+        <div class="container">
+            <h2>The Market Reality</h2>
+            <p class="statement">
+                Growth breaks without strong execution and governance.
+            </p>
+            <p class="sub">
+                Clients and investors face the same risk: fragmentation.
+            </p>
+        </div>
+    </section>
+    <!-- ================= OUR ANSWER ================= -->
+    <section class="section section-answer stack-section">
+        <div class="container split">
+            <div class="text">
+                <span class="eyebrow">Our Answer</span>
+                <h2>One Group Owning<br />Strategy to Execution</h2>
+                <p>
+                    One partner. One accountability. Long-term value creation.
+                    From concept to compliance. From vision to execution.
+                </p>
+            </div>
+            <div class="stack">
+                <div class="card">Discover</div>
+                <div class="card">Structure</div>
+                <div class="card">Execute</div>
+                <div class="card">Govern</div>
+                <div class="card">Scale</div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+      const sections = document.querySelectorAll('.stack-section');
+
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-active');
+
+              sections.forEach(sec => {
+                if (sec !== entry.target) {
+                  sec.classList.remove('is-active');
+                  sec.classList.add('is-behind');
+                }
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.35
+        }
+      );
+
+      sections.forEach(section => observer.observe(section));
+    </script>
+
+</body>
+
+</html>
