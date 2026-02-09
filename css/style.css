@@ -277,6 +277,10 @@ p {
 .hero-content {
     position: absolute;
     max-width: 760px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroFadeIn 3.0s ease-out forwards;
+    animation-delay: 2.0s;
 }
 
 /* visual anchor line */
@@ -308,6 +312,12 @@ p {
     z-index: 0;
 }
 
+@keyframes heroFadeIn {
+    to {
+        opacity: 0.75;
+        transform: translateY(0);
+    }
+}
 
 /* ================= GRID ================= */
 .grid {
