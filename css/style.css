@@ -156,7 +156,7 @@ p {
 .logo img {
   margin-top: 20px;
   margin-bottom: 10px;
-  height: 60px;
+  height: 50px;
 }
 
 /*.site-header {
@@ -323,7 +323,7 @@ p {
 }
 
 .hero-content {
-  position: relative;
+  position: absolute;
   max-width: 760px;
 }
 
@@ -352,7 +352,7 @@ p {
   max-width: 100%;
   object-fit: cover;
   opacity: 0.35;
-  filter: saturate(0.9) contrast(1.05);
+  /*filter: saturate(0.9) contrast(1.05);*/
   z-index: 0;
 }
 
