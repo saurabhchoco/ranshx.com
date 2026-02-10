@@ -16,9 +16,12 @@
     <!-- ================= HEADER ================= -->
     <header class="site-header">
         <div class="container header-inner">
-            <div class="logo">
+          <div class="logo hero-logo">
                 <img src="assets/images/logo/rsx-logo6-final-reverse.png" alt="RSX Logo" />
             </div>
+            <!-- <div class="logo">
+                <img src="assets/images/logo/rsx-logo6-final-reverse.png" alt="RSX Logo" />
+            </div> -->
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
@@ -39,9 +42,9 @@
         </div>
     </header>
     <!-- ================= HERO ================= -->
-    <section class="hero">
-        <video class="hero-video-bg" autoplay muted playsinline preload="metadata">
-            <source src="assets/videos/rsx-hero-bg-2.mp4" type="video/mp4">
+    <!--     <section class="hero">
+        <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata">
+            <source src="assets/videos/rsx-hero-bg-1.mp4" type="video/mp4">
         </video>
         <div class="container hero-content">
             <h1>Strategy Executed.<br />Growth Delivered.</h1>
@@ -49,9 +52,26 @@
                 RSX operates at the intersection of strategy, <br />execution, creativity, technology, <br />people, and governance.
             </p>
         </div>
+    </section> -->
+    <section class="hero-parallax">
+        <div class="hero" id="hero">
+            <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata">
+                <!-- <source src="assets/videos/rsx-hero-bg-2.mp4" type="video/mp4"> -->
+                <source src="assets/videos/rsx-hero-bg-1.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+              <div class="hero-text premium">
+                <h1 class="mask-reveal">Strategy Executed.<br />Growth Delivered.</h1>
+                <p class="mask-reveal delay">
+                    RSX operates at the intersection of strategy, <br />execution, creativity, technology, <br />people, and governance.
+                </p>
+              </div>
+            </div>
+        </div>
     </section>
     <!-- ================= WHO WE ARE ================= -->
-    <section id="who" class="section">
+    <!--     <section id="who" class="section">
         <div class="container">
             <h2>Who We Are</h2>
             <p class="section-intro">
@@ -62,6 +82,27 @@
                 through execution — delivering measurable outcomes with clarity,
                 accountability, and precision.
             </p>
+        </div>
+    </section> -->
+    <section class="who-we-are" id="who">
+        <div class="who-inner">
+            <div class="who-text">
+                <h2>Who We Are</h2>
+                <p class="subtitle">
+                    An integrated partner for scalable, compliant growth.
+                </p>
+                <p>
+                    RSX RanShX Global is built to eliminate fragmentation by owning
+                    strategy through execution — delivering measurable outcomes with
+                    clarity, accountability, and precision.
+                </p>
+            </div>
+            <div class="who-media">
+              <!-- <img src="assets/images/silhouette-three-executives-office.jpg" alt="Who" /> -->
+              <video autoplay muted loop playsinline>
+                    <source src="assets/videos/who-we-are.mp4" type="video/mp4" />
+                </video>
+            </div>
         </div>
     </section>
     <!-- ================= WHAT WE DO ================= -->
