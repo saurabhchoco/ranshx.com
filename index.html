@@ -4,227 +4,339 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RSX RanShX Global</title>
-    <!-- SEO basics -->
-    <meta name="description" content="RSX RanShX Global – Integrated partner for strategy, execution, branding, technology and growth." />
-    <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>RSX - RanShX Global</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <!-- ================= HEADER ================= -->
-    <header class="site-header">
-        <div class="container header-inner">
-          <div class="logo hero-logo">
-                <img src="assets/images/logo/rsx-logo6-final-reverse.png" alt="RSX Logo" />
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+        <div class="nav-container">
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="assets/images/logo/rsx-logo6w.png" alt="RSX Logo" />
+                <span class="logo-tagline">RanShX Global</span>
             </div>
-            <!-- <div class="logo">
-                <img src="assets/images/logo/rsx-logo6-final-reverse.png" alt="RSX Logo" />
-            </div> -->
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav class="overlay-menu" id="overlayMenu">
-                <button class="menu-close" id="menuClose" aria-label="Close menu">
-                    &times;
-                </button>
-                <ul>
-                    <li><a href="#who">Who We Are</a></li>
-                    <li><a href="#what">What We Do</a></li>
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#leadership">The TEAM</a></li>
-                    <li><a href="#contact">Contact</a></li>
+            <!-- NAVIGATION -->
+            <nav class="nav-wrapper">
+                <ul class="nav-menu">
+                    <li data-mega="business"><a href="#">Business</a></li>
+                    <li data-mega="industries"><a href="#">Industries</a></li>
+                    <li data-mega="solutions"><a href="#">Solutions</a></li>
+                    <li><a href="#">Careers</a></li>
                 </ul>
             </nav>
+            <!-- CONTACT + THEME -->
+            <button class="btn-outline">Contact Us</button>
+            <div class="theme-switch">
+                <input type="checkbox" id="themeToggle">
+                <label for="themeToggle" class="toggle-slider">
+                    <span class="toggle-icon sun">☀</span>
+                    <span class="toggle-icon moon">🌙</span>
+                </label>
+            </div>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <!-- SINGLE SHARED MEGA MENU -->
+        <div class="mega-menu">
+            <div class="mega-inner">
+                <div class="mega-content business active">
+                    <!-- Business content -->
+                    <div class="mega-section">
+                        <h3>Business Overview</h3>
+                        <div class="mega-divider"></div>
+                        <a href="#" class="mega-link">Learn More</a>
+                    </div>
+                    <div class="mega-section">
+                        <h3>Business Verticals</h3>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li>Technology</li>
+                                <li>Hospitality</li>
+                                <li>Events</li>
+                            </ul>
+                            <ul>
+                                <li>Branding</li>
+                                <li>HR</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mega-content industries">
+                    <!-- Industries content -->
+                    <div class="mega-section">
+                        <h3>Overview</h3>
+                        <div class="mega-divider"></div>
+                        <a href="#" class="mega-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="mega-content solutions">
+                    <!-- Solutions content -->
+                </div>
+                <!-- BUSINESS PANEL -->
+                <!-- <div class="mega-content business active">
+                    <div class="mega-section">
+                        <h3>Business Overview</h3>
+                        <div class="mega-divider"></div>
+                        <a href="#" class="mega-link">Learn More</a>
+                    </div>
+                    <div class="mega-section">
+                        <h3>Business Verticals</h3>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li>Technology</li>
+                                <li>Hospitality</li>
+                                <li>Events</li>
+                            </ul>
+                            <ul>
+                                <li>Branding</li>
+                                <li>HR</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mega-content industries">
+                    <div class="mega-section">
+                        <h3>Overview</h3>
+                        <div class="mega-divider"></div>
+                        <a href="#" class="mega-link">Learn More</a>
+                    </div>
+                </div> -->
+            </div>
         </div>
     </header>
     <!-- ================= HERO ================= -->
-    <!--     <section class="hero">
-        <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata">
-            <source src="assets/videos/rsx-hero-bg-1.mp4" type="video/mp4">
-        </video>
-        <div class="container hero-content">
-            <h1>Strategy Executed.<br />Growth Delivered.</h1>
+    <!-- <section class="hero" style="background-image: url('assets/images/hero-bg.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 300px; width: 100%;"> -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>Strategy Executed. Growth Delivered.</h1>
             <p>
-                RSX operates at the intersection of strategy, <br />execution, creativity, technology, <br />people, and governance.
+                RSX operates at the intersection of strategy,
+                execution, creativity, technology,
+                people, and governance..
             </p>
-        </div>
-    </section> -->
-    <section class="hero-parallax">
-        <div class="hero" id="hero">
-            <video class="hero-video-bg" autoplay muted loop playsinline preload="metadata">
-                <!-- <source src="assets/videos/rsx-hero-bg-2.mp4" type="video/mp4"> -->
-                <source src="assets/videos/rsx-hero-bg-1.mp4" type="video/mp4">
-            </video>
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-              <div class="hero-text premium">
-                <h1 class="mask-reveal">Strategy Executed.<br />Growth Delivered.</h1>
-                <p class="mask-reveal delay">
-                    RSX operates at the intersection of strategy, <br />execution, creativity, technology, <br />people, and governance.
-                </p>
-              </div>
-            </div>
         </div>
     </section>
-    <!-- ================= WHO WE ARE ================= -->
-    <!--     <section id="who" class="section">
-        <div class="container">
-            <h2>Who We Are</h2>
-            <p class="section-intro">
-                An integrated partner for scalable, compliant growth.
-            </p>
-            <p>
-                RSX RanShX Global is built to eliminate fragmentation by owning strategy
-                through execution — delivering measurable outcomes with clarity,
-                accountability, and precision.
-            </p>
-        </div>
-    </section> -->
-    <section class="who-we-are" id="who">
-        <div class="who-inner">
-            <div class="who-text">
-                <h2>Who We Are</h2>
-                <p class="subtitle">
-                    An integrated partner for scalable, compliant growth.
-                </p>
-                <p>
-                    RSX RanShX Global is built to eliminate fragmentation by owning
-                    strategy through execution — delivering measurable outcomes with
-                    clarity, accountability, and precision.
-                </p>
-            </div>
-            <div class="who-media">
-              <!-- <img src="assets/images/silhouette-three-executives-office.jpg" alt="Who" /> -->
-              <video autoplay muted loop playsinline>
-                    <source src="assets/videos/who-we-are.mp4" type="video/mp4" />
-                </video>
-            </div>
-        </div>
-    </section>
-    <!-- ================= WHAT WE DO ================= -->
-    <section id="what" class="section what-we-do">
-        <div class="container">
-            <h2 class="section-title">What We Do</h2>
-            <div class="services-system">
-                <!-- Left stack -->
-                <div class="services-side left">
-                    <div class="service-card supporting">
-                        <h3>Hospitality Solutions</h3>
-                        <p>Our flagship operating vertical with real-world expertise.</p>
-                    </div>
-                    <div class="service-card supporting">
-                        <h3>Strategy & Execution</h3>
-                        <p>From concept to execution with ownership and governance.</p>
-                    </div>
+    <!-- ================= HORIZONTAL ACCORDION ================= -->
+    <section class="h-accordion-section">
+        <div class="h-accordion">
+            <div class="h-item">
+                <div class="h-content">
+                    <h3>Hospitality Solutions</h3>
+                    <p>End-to-end operating expertise grounded in real-world delivery.</p>
                 </div>
-                <!-- Center stack -->
-                <div class="services-center">
-                    <div class="service-card featured primary">
-                        <h3>Events & Experiences</h3>
-                        <p>High-impact engagement delivered at scale.</p>
-                    </div>
-                    <div class="service-card featured secondary">
-                        <h3>Branding & PR</h3>
-                        <p>Building credible, commercial brands designed to endure.</p>
-                    </div>
+            </div>
+            <div class="h-item">
+                <div class="h-content">
+                    <h3>PR, Branding, & Maketing</h3>
+                    <p>High-impact engagement delivered at scale, precision, and speed.</p>
                 </div>
-                <!-- Right stack -->
-                <div class="services-side right">
-                    <div class="service-card supporting">
-                        <h3>Technology & Digital</h3>
-                        <p>Scalable systems built for performance and clarity.</p>
-                    </div>
-                    <div class="service-card supporting">
-                        <h3>People & Compliance</h3>
-                        <p>The foundation clients trust for sustainable growth.</p>
-                    </div>
+            </div>
+            <div class="h-item">
+                <div class="h-content">
+                    <h3>Events & Experiential Solutions</h3>
+                    <p>High-impact engagement delivered at scale, precision, and speed.</p>
+                </div>
+            </div>
+            <div class="h-item">
+                <div class="h-content">
+                    <h3>Technology & Digital Solutions</h3>
+                    <p>Scalable systems designed for clarity and performance.</p>
+                </div>
+            </div>
+            <div class="h-item">
+                <div class="h-content">
+                    <h3>Human Resource, Manpower & Compliance Solutions</h3>
+                    <p>The foundation clients trust for sustainable growth.</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ================= WORK ================= -->
-    <section id="work" class="section">
-        <div class="container">
-            <h2>Selected Work</h2>
-            <p class="section-intro">
-                200+ projects delivered across industries, measured by real-world results.
-            </p>
-            <div class="work-editorial">
-                <div class="work-item large"></div>
-                <div class="work-item"></div>
-                <div class="work-item"></div>
+    <!-- ================= VERTICAL ACCORDION (KEPT) ================= -->
+    <section class="accordion-section">
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    AI Agent Orchestration <span>+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Design and deploy autonomous AI agents across workflows.</p>
+                </div>
             </div>
-            <!-- <div class="grid grid-4 placeholder-grid">
-        <div class="placeholder-box"></div>
-        <div class="placeholder-box"></div>
-        <div class="placeholder-box"></div>
-        <div class="placeholder-box"></div>
-      </div>
-    </div> -->
-    </section>
-    <!-- ================= LEADERSHIP ================= -->
-    <section id="leadership" class="section section-light">
-        <div class="container">
-            <h2>The TEAM</h2>
-            <p class="section-intro">
-                Leadership across strategy, operations, brand, and technology.
-            </p>
-            <div class="grid grid-4">
-                <div class="leader-card">
-                    <div class="leader-photo">
-                        <img src="assets/images/Rishi.jpeg" alt="Rahul Rishi">
-                    </div>
-                    <h4>Rahul Rishi</h4>
-                    <span>Creative & Brand Lead</span>
-                </div>
-                <div class="leader-card">
-                    <div class="leader-photo">
-                        <img src="assets/images/sidd_profile_pic.png" alt="Sidd">
-                    </div>
-                    <h4>Siddhartha Chakraborty</h4>
-                    <span>Hospitality & Operations Lead</span>
-                </div>
-                <div class="leader-card">
-                    <div class="leader-photo">
-                        <img src="assets/images/Hema.jpeg" alt="Hema Vyas">
-                    </div>
-                    <h4>Hema Vyas</h4>
-                    <span>Compliance & HR Lead</span>
-                </div>
-                <div class="leader-card">
-                    <div class="leader-photo">
-                        <img src="assets/images/Saurabh-profile-pic.jpeg" alt="SRC">
-                    </div>
-                    <h4>Saurabh Chakraborty</h4>
-                    <span>Technology Lead</span>
+            <div class="accordion-item">
+                <button class="accordion-header">
+                    Production-Grade AI <span>+</span>
+                </button>
+                <div class="accordion-body">
+                    <p>Enterprise-ready AI software with compliance and CI/CD.</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" class="section">
-        <div class="container contact-box">
-            <h2>Let’s Connect</h2>
-            <p>
-                Connect with us to bring clarity and intent to your brand.
-            </p>
-            <div class="contact-details">
-                <p>Email: <a href="mailto:support@ranshx.com">support@ranshx.com</a></p>
-                <p>Phone: +91 98736 02717</p>
+    <!-- ================= OUR TEAM ================= -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="section-underline"></div>
+            <div class="team-grid">
+                <!-- CARD 1 -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="card-image">
+                                <img src="assets/images/profile-pics/sidd.png" alt="">
+                            </div>
+                            <div class="card-front-content">
+                                <h3>Siddhartha Chakraborty</h3>
+                                <p class="team-role">Hospitality & Operations Lead</p>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-content">
+                                <p>
+                                    Phasellus eget enim eu lectus faucibus vestibulum.
+                                    Suspendisse sodales pellentesque elementum.
+                                </p>
+                                <button class="team-btn">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 2 -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="card-image">
+                                <img src="assets/images/profile-pics/hema.jpeg" alt="">
+                            </div>
+                            <div class="card-front-content">
+                                <h3>Hema Vyas</h3>
+                                <p class="team-role">Compliance & HR Lead</p>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-content">
+                                <p>
+                                    Phasellus eget enim eu lectus faucibus vestibulum.
+                                    Suspendisse sodales pellentesque elementum.
+                                </p>
+                                <button class="team-btn">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 3 -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="card-image">
+                                <img src="assets/images/profile-pics/rishi.jpeg" alt="">
+                            </div>
+                            <div class="card-front-content">
+                                <h3>Rahul Rishi</h3>
+                                <p class="team-role">Creative & Brand Lead</p>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-content">
+                                <p>
+                                    Phasellus eget enim eu lectus faucibus vestibulum.
+                                    Suspendisse sodales pellentesque elementum.
+                                </p>
+                                <button class="team-btn">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 4 -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <div class="card-face card-front">
+                            <div class="card-image">
+                                <img src="assets/images/profile-pics/src.jpeg" alt="">
+                            </div>
+                            <div class="card-front-content">
+                                <h3>SRC</h3>
+                                <p class="team-role">Technology</p>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-back-content">
+                                <p>
+                                    Phasellus eget enim eu lectus faucibus vestibulum.
+                                    Suspendisse sodales pellentesque elementum.
+                                </p>Hospitality & Food Business Solutions
+                                <button class="team-btn">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     <!-- ================= FOOTER ================= -->
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <p>© 2026 RSX RanShX Global. All rights reserved.</p>
+    <footer class="footer">
+        <!-- BLACK CONTACT STRIP -->
+        <div class="footer-contact-bar">
+            <div class="footer-contact-inner">
+                <span>Contact Us</span>
+                <div class="footer-contact-icons">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M2 4h20v16H2z" /></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 2h12v20H6z" /></svg>
+                </div>
+            </div>
+        </div>
+        <!-- MAIN FOOTER -->
+        <div class="footer-main">
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <a href="#">Accessibility</a>
+                    <a href="#">Cookie Settings</a>
+                    <a href="#">Locations</a>
+                    <a href="#">Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <a href="#">Careers ↗</a>
+                    <a href="#">Media</a>
+                    <a href="#">SPEED Approach</a>
+                </div>
+                <div class="footer-col">
+                    <a href="#">Client Stories</a>
+                    <a href="#">Industries</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+                <div class="footer-col">
+                    <a href="#">Company Overview</a>
+                    <a href="#">Insights</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div class="footer-do-not-sell">
+                Do Not Sell My Personal Information ↗
+            </div>
+        </div>
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+            © 2026 RSX - RanShX Global. All rights reserved.
+            <div class="footer-social">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 4h16v16H4z" /></svg>
+                <svg viewBox="0 0 24 24">
+                    <path d="M2 2h20v20H2z" /></svg>
+            </div>
         </div>
     </footer>
-    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
