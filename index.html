@@ -185,15 +185,37 @@
 </section>
 
 <!-- ===================== POSITIONING STRIP ===================== -->
-<div class="positioning-strip">
-    <div class="strip-inner">
-        <span>One Group. Five Verticals.</span>
-        <span class="strip-dot"></span>
-        <span>Promoter-Led Delivery.</span>
-        <span class="strip-dot"></span>
-        <span>From Concept to Compliance.</span>
-        <span class="strip-dot"></span>
-        <span>Startups to Institutions.</span>
+<div class="ticker-strip">
+    <div class="ticker-track">
+        <div class="ticker-content">
+            <span>One Group. Five Verticals.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Promoter-Led Delivery.</span>
+            <span class="ticker-dot">✦</span>
+            <span>From Concept to Compliance.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Startups to Institutions.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Execution-First. Governance-Led.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Strategy Executed. Growth Delivered.</span>
+            <span class="ticker-dot">✦</span>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="ticker-content" aria-hidden="true">
+            <span>One Group. Five Verticals.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Promoter-Led Delivery.</span>
+            <span class="ticker-dot">✦</span>
+            <span>From Concept to Compliance.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Startups to Institutions.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Execution-First. Governance-Led.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Strategy Executed. Growth Delivered.</span>
+            <span class="ticker-dot">✦</span>
+        </div>
     </div>
 </div>
 
@@ -205,6 +227,20 @@
             <h2 class="section-display">One Partner.<br>Full Accountability.</h2>
             <p>RSX is a multi-vertical group built to eliminate the fragmentation that stalls growth. We bring operational depth, enterprise technology capability, creative brand-building, and regulatory expertise under a single integrated structure.</p>
             <p>Every engagement is promoter-led — senior ownership from discovery through delivery, not handed down to junior teams.</p>
+            <div class="about-stats">
+                <div class="about-stat">
+                    <h3>5</h3>
+                    <p>Business Verticals</p>
+                </div>
+                <div class="about-stat">
+                    <h3>1</h3>
+                    <p>Integrated Group</p>
+                </div>
+                <div class="about-stat">
+                    <h3>25+</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
             <a href="#verticals" class="btn-ghost">Explore Our Verticals →</a>
         </div>
         <div class="about-right">
@@ -308,8 +344,10 @@
 <section class="model-section" id="model">
     <div class="model-inner">
         <div class="model-header">
-            <span class="eyebrow eyebrow--light">How We Engage</span>
-            <h2 class="section-display section-display--white">A Repeatable<br>Delivery Model.</h2>
+            <div class="model-header-left">
+                <span class="eyebrow eyebrow--light">How We Engage</span>
+                <h2 class="section-display section-display--white">A Repeatable<br>Delivery Model.</h2>
+            </div>
             <p class="model-desc">Every RSX engagement follows a structured five-stage model — built to ensure nothing falls through the cracks between strategy and execution.</p>
         </div>
         <div class="model-steps">
@@ -508,8 +546,10 @@
     <div class="footer-main">
         <div class="footer-top">
             <div class="footer-brand">
-                <span class="footer-logo-text">RSX</span>
-                <span class="footer-tagline">RanShX Global</span>
+                <img src="assets/images/logo/rsx-logo6w.png" alt="RSX Logo" class="footer-logo-img"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                <span class="footer-logo-text" style="display:none;">RSX</span>
+                <!-- <span class="footer-tagline">RanShX Global</span> -->
             </div>
             <div class="footer-columns">
                 <div class="footer-col">

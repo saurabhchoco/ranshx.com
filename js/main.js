@@ -184,10 +184,10 @@ heroTl
     .from(".hero-pill--a",  { x: 40, opacity: 0, duration: 0.7 }, "-=0.6")
     .from(".hero-pill--b",  { x: 40, opacity: 0, duration: 0.6 }, "-=0.5");
 
-gsap.from(".strip-inner > *", {
-    scrollTrigger: { trigger: ".positioning-strip", start: "top 90%" },
-    opacity: 0, y: 10, duration: 0.4, stagger: 0.08, ease: "power2.out"
-});
+    gsap.from(".ticker-strip", {
+        scrollTrigger: { trigger: ".ticker-strip", start: "top 95%" },
+        opacity: 0, duration: 0.6, ease: "power2.out"
+    });
 
 
 /* =========================================================
