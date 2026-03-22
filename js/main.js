@@ -29,9 +29,17 @@ gsap.registerPlugin(ScrollTrigger);
 
     const isDark = () => document.body.classList.contains('dark-mode');
 
-    const DARK_COLORS  = ['#e63a1e', '#ff6b47', '#c4300f', '#ffffff'];
-    const LIGHT_COLORS = ['#e63a1e', '#c4300f', '#111111', '#cccccc'];
-    const COLORS = () => isDark() ? DARK_COLORS : LIGHT_COLORS;
+    // RSX logo colour palette — blue, purple, pink, red, yellow, green
+    const LOGO_COLORS = [
+        '#4A90D9', // blue
+        '#6B4FBB', // purple
+        '#C94085', // pink/magenta
+        '#E63A1e', // brand red
+        '#F5C400', // yellow-gold
+        '#7AB648', // green
+        '#3ABFCF', // cyan-teal
+    ];
+    const COLORS = () => LOGO_COLORS;
 
     function resize() {
         W = canvas.width  = canvas.offsetWidth;
@@ -46,24 +54,22 @@ gsap.registerPlugin(ScrollTrigger);
         const count = Math.floor(W / 8);
         for (let i = 0; i < count; i++) {
             const cols = COLORS();
-particles.push({
-    x:     randomBetween(0, W),
-    y:     randomBetween(0, H),
-    r:     randomBetween(1, 2.5),
-    color: cols[Math.floor(Math.random() * cols.length)],
-                alpha: randomBetween(0.08, 0.35),
-                vx:    randomBetween(-0.15, 0.15),
-                vy:    randomBetween(-0.25, -0.05),
-            });
+            particles.push({
+                x:     randomBetween(0, W),
+                y:     randomBetween(0, H),
+                r:     randomBetween(1, 2.5),
+                color: cols[Math.floor(Math.random() * cols.length)],
+                            alpha: randomBetween(0.08, 0.35),
+                            vx:    randomBetween(-0.15, 0.15),
+                            vy:    randomBetween(-0.25, -0.05),
+                        });
         }
     }
 
     /* --- Grid lines --- */
     function drawGrid() {
         ctx.save();
-        ctx.strokeStyle = isDark()
-        ? 'rgba(255,255,255,0.03)'
-        : 'rgba(0,0,0,0.04)';
+        ctx.strokeStyle = 'rgba(100,130,255,0.04)';
         ctx.lineWidth = 1;
         const spacing = 60;
         for (let x = 0; x < W; x += spacing) {
@@ -77,7 +83,7 @@ particles.push({
 
     /* --- Gradient orbs --- */
     function drawOrbs() {
-        const intensity = isDark() ? 1 : 0.5;
+        const intensity = 1;
     
         const g1 = ctx.createRadialGradient(W * 0.05, H * 0.85, 0, W * 0.05, H * 0.85, W * 0.45);
         g1.addColorStop(0, `rgba(230,58,30,${0.18 * intensity})`);
@@ -123,8 +129,8 @@ particles.push({
         ctx.clearRect(0, 0, W, H);
 
         // Base background — dark or light
-    ctx.fillStyle = isDark() ? '#0a0a0a' : '#ffffff';
-    ctx.fillRect(0, 0, W, H);
+        ctx.fillStyle = '#0d0d0d';
+        ctx.fillRect(0, 0, W, H);
 
         drawGrid();
         drawOrbs();
