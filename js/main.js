@@ -17,6 +17,154 @@ let menuOpen       = false;
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* =========================================================
+   HERO CANVAS ANIMATION
+   ========================================================= */
+   (function() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    let W, H, particles, animId;
+
+    const isDark = () => document.body.classList.contains('dark-mode');
+
+    const DARK_COLORS  = ['#e63a1e', '#ff6b47', '#c4300f', '#ffffff'];
+    const LIGHT_COLORS = ['#e63a1e', '#c4300f', '#111111', '#cccccc'];
+    const COLORS = () => isDark() ? DARK_COLORS : LIGHT_COLORS;
+
+    function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+    }
+
+    function randomBetween(a, b) { return a + Math.random() * (b - a); }
+
+    /* --- Particles --- */
+    function initParticles() {
+        particles = [];
+        const count = Math.floor(W / 8);
+        for (let i = 0; i < count; i++) {
+            const cols = COLORS();
+particles.push({
+    x:     randomBetween(0, W),
+    y:     randomBetween(0, H),
+    r:     randomBetween(1, 2.5),
+    color: cols[Math.floor(Math.random() * cols.length)],
+                alpha: randomBetween(0.08, 0.35),
+                vx:    randomBetween(-0.15, 0.15),
+                vy:    randomBetween(-0.25, -0.05),
+            });
+        }
+    }
+
+    /* --- Grid lines --- */
+    function drawGrid() {
+        ctx.save();
+        ctx.strokeStyle = isDark()
+        ? 'rgba(255,255,255,0.03)'
+        : 'rgba(0,0,0,0.04)';
+        ctx.lineWidth = 1;
+        const spacing = 60;
+        for (let x = 0; x < W; x += spacing) {
+            ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+        }
+        for (let y = 0; y < H; y += spacing) {
+            ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+        }
+        ctx.restore();
+    }
+
+    /* --- Gradient orbs --- */
+    function drawOrbs() {
+        const intensity = isDark() ? 1 : 0.5;
+    
+        const g1 = ctx.createRadialGradient(W * 0.05, H * 0.85, 0, W * 0.05, H * 0.85, W * 0.45);
+        g1.addColorStop(0, `rgba(230,58,30,${0.18 * intensity})`);
+        g1.addColorStop(1, 'rgba(230,58,30,0)');
+        ctx.fillStyle = g1;
+        ctx.fillRect(0, 0, W, H);
+    
+        const g2 = ctx.createRadialGradient(W * 0.9, H * 0.1, 0, W * 0.9, H * 0.1, W * 0.35);
+        g2.addColorStop(0, `rgba(230,58,30,${0.08 * intensity})`);
+        g2.addColorStop(1, 'rgba(230,58,30,0)');
+        ctx.fillStyle = g2;
+        ctx.fillRect(0, 0, W, H);
+    }
+
+    /* --- Diagonal slash accent (PDF-inspired) --- */
+    function drawSlashes() {
+        ctx.save();
+        ctx.strokeStyle = isDark()
+        ? 'rgba(230,58,30,0.12)'
+        : 'rgba(230,58,30,0.07)';
+        ctx.lineWidth = 60;
+        ctx.lineCap = 'round';
+
+        // Slash 1
+        ctx.beginPath();
+        ctx.moveTo(W * 0.72, -H * 0.1);
+        ctx.lineTo(W * 0.58, H * 1.1);
+        ctx.stroke();
+
+        // Slash 2
+        ctx.strokeStyle = 'rgba(230,58,30,0.07)';
+        ctx.lineWidth = 40;
+        ctx.beginPath();
+        ctx.moveTo(W * 0.82, -H * 0.1);
+        ctx.lineTo(W * 0.68, H * 1.1);
+        ctx.stroke();
+
+        ctx.restore();
+    }
+
+    /* --- Main render loop --- */
+    function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        // Base background — dark or light
+    ctx.fillStyle = isDark() ? '#0a0a0a' : '#ffffff';
+    ctx.fillRect(0, 0, W, H);
+
+        drawGrid();
+        drawOrbs();
+        drawSlashes();
+
+        // Particles
+        particles.forEach(p => {
+            ctx.save();
+            ctx.globalAlpha = p.alpha;
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.y < -5) { p.y = H + 5; p.x = randomBetween(0, W); }
+            if (p.x < -5) p.x = W + 5;
+            if (p.x > W + 5) p.x = -5;
+        });
+
+        animId = requestAnimationFrame(draw);
+    }
+
+    function init() {
+        resize();
+        initParticles();
+        draw();
+    }
+
+    window.addEventListener('resize', () => {
+        resize();
+        initParticles();
+    });
+
+    // Start after GSAP hero timeline begins
+    init();
+})();
 
 /* =========================================================
    HERO — LOAD ANIMATIONS
