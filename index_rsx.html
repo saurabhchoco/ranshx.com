@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RSX — RanShX Global</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <img src="assets/images/logo/rsx_logo_final_dark.png" alt="RSX Logo"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+            <span class="logo-text" style="display:none;">RSX</span>
+            <!-- <span class="logo-tagline">RanShX Global</span> -->
+        </a>
+
+        <nav class="nav-wrapper" id="navWrapper">
+            <ul class="nav-menu">
+                <li data-mega="business"><a href="#">Business</a></li>
+                <li data-mega="about"><a href="#">About</a></li>
+                <li data-mega="solutions"><a href="#">Solutions</a></li>
+                <li data-mega="insights"><a href="#">Insights</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-controls">
+            <a href="#contact" class="btn-outline">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+                Contact Us
+            </a>
+            <div class="theme-switch">
+                <input type="checkbox" id="themeToggle">
+                <label for="themeToggle" class="toggle-slider" title="Toggle theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </label>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MEGA MENU -->
+    <div class="mega-menu" id="megaMenu">
+        <div class="mega-inner" id="megaInner">
+
+            <div class="mega-content business active">
+                <div class="mega-grid">
+                    <div class="mega-section">
+                        <p class="mega-label">Overview</p>
+                        <h3>RanShX Global</h3>
+                        <div class="mega-divider"></div>
+                        <a href="#" class="mega-link">Learn More</a>
+                    </div>
+                    <div>
+                        <p class="mega-label">THE GROUP</p>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li>Company Overview</li>
+                                <li>Our Model</li>
+                                <li>Leadership</li>
+                                
+                            </ul>
+                            <ul>
+                                <li>SPEED Approach</li>
+                                <li>Why RSX</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mega-content about">
+                <div class="mega-grid">
+                    <div class="mega-section">
+                        <p class="mega-label">Who We Are</p>
+                        <h3>About RSX</h3>
+                        <div class="mega-divider"></div>
+                        <a href="#" class="mega-link">Our Story</a>
+                    </div>
+                    <div>
+                        <p class="mega-label">The Group</p>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li>Company Overview</li>
+                                <li>Leadership Team</li>
+                                <li>Our Model</li>
+                            </ul>
+                            <ul>
+                                <li>SPEED Approach</li>
+                                <li>Locations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mega-content solutions">
+                <div class="mega-grid">
+                    <div class="mega-section">
+                        <p class="mega-label">What We Do</p>
+                        <h3>Our Verticals</h3>
+                        <div class="mega-divider"></div>
+                        <a href="#verticals" class="mega-link">See All</a>
+                    </div>
+                    <div>
+                        <p class="mega-label">Business Verticals</p>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li>Hospitality &amp; Food Business</li>
+                                <li>Technology &amp; Digital Transformation</li>
+                                <li>PR, Branding &amp; Marketing</li>
+                            </ul>
+                            <ul>
+                                <li>Events &amp; Experiential</li>
+                                <li>HR, Manpower &amp; Compliance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mega-content insights">
+                <div class="mega-grid">
+                    <div class="mega-section">
+                        <p class="mega-label">Resources</p>
+                        <h3>Insights</h3>
+                        <div class="mega-divider"></div>
+                        <a href="#" class="mega-link">View All</a>
+                    </div>
+                    <div>
+                        <p class="mega-label">Explore</p>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li>Client Stories</li>
+                                <li>Case Studies</li>
+                                <li>Industry Reports</li>
+                            </ul>
+                            <ul>
+                                <li>Blog &amp; Articles</li>
+                                <li>Media &amp; Press</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-pill hero-pill--a"></div>
+    <div class="hero-pill hero-pill--b"></div>
+    <div class="hero-inner">
+        <!-- <p class="hero-kicker">RSX · RanShX Global</p> -->
+        <h1>Strategy Executed.<br><span class="h1-outline">Growth Delivered.</span></h1>
+        <p class="hero-sub">An integrated group operating at the intersection of strategy, execution, technology, and governance — enabling clients to scale without fragmentation.</p>
+        <a href="#contact" class="btn-primary">Work With Us</a>
+    </div>
+</section>
+
+<!-- ===================== POSITIONING STRIP ===================== -->
+<div class="ticker-strip">
+    <div class="ticker-track">
+        <div class="ticker-content">
+            <span>One Group. Five Verticals.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Promoter-Led Delivery.</span>
+            <span class="ticker-dot">✦</span>
+            <span>From Concept to Compliance.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Startups to Institutions.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Execution-First. Governance-Led.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Strategy Executed. Growth Delivered.</span>
+            <span class="ticker-dot">✦</span>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="ticker-content" aria-hidden="true">
+            <span>One Group. Five Verticals.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Promoter-Led Delivery.</span>
+            <span class="ticker-dot">✦</span>
+            <span>From Concept to Compliance.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Startups to Institutions.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Execution-First. Governance-Led.</span>
+            <span class="ticker-dot">✦</span>
+            <span>Strategy Executed. Growth Delivered.</span>
+            <span class="ticker-dot">✦</span>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== WHAT WE DO ===================== -->
+<section class="about-section" id="about">
+    <div class="about-inner">
+        <div class="about-left">
+            <span class="eyebrow">What We Do</span>
+            <h2 class="section-display">One Partner.<br>Full Accountability.</h2>
+            <p>RSX is a multi-vertical group built to eliminate the fragmentation that stalls growth. We bring operational depth, enterprise technology capability, creative brand-building, and regulatory expertise under a single integrated structure.</p>
+            <p>Every engagement is promoter-led — senior ownership from discovery through delivery, not handed down to junior teams.</p>
+            <div class="about-stats">
+                <div class="about-stat">
+                    <h3>5</h3>
+                    <p>Business Verticals</p>
+                </div>
+                <div class="about-stat">
+                    <h3>1</h3>
+                    <p>Integrated Group</p>
+                </div>
+                <div class="about-stat">
+                    <h3>25+</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+            <a href="#verticals" class="btn-ghost">Explore Our Verticals →</a>
+        </div>
+        <div class="about-right">
+            <div class="value-card">
+                <div class="value-num">01</div>
+                <h4>Execution-First</h4>
+                <p>We focus on outcomes that can be tracked, measured, and trusted — not decks and recommendations.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-num">02</div>
+                <h4>Governance-Led</h4>
+                <p>Compliance, structure, and accountability are built in from day one, not retrofitted after problems emerge.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-num">03</div>
+                <h4>Integrated by Design</h4>
+                <p>Every vertical within RSX operates as part of one group — enabling cross-functional delivery no standalone consultant can match.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== OUR VERTICALS ===================== -->
+<section class="verticals-section" id="verticals">
+    <div class="verticals-inner">
+        <div class="verticals-header">
+            <span class="eyebrow">Our Business Verticals</span>
+            <h2 class="section-display">Five Practices.<br><span class="display-outline">One Group.</span></h2>
+        </div>
+        <div class="verticals-grid">
+            <div class="v-card" data-num="01">
+                <div class="v-card-top">
+                    <span class="v-card-num">01</span>
+                    <div class="v-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                </div>
+                <h3>Hospitality &amp; Food Business</h3>
+                <p>Hotel operations &amp; management contracts, revenue planning, OTA &amp; MICE strategy, concept &amp; menu development, chef training, kitchen planning, SOP design, and audit reporting.</p>
+                <div class="v-card-footer">
+                    <a href="#" class="v-link">Explore →</a>
+                </div>
+            </div>
+            <div class="v-card" data-num="02">
+                <div class="v-card-top">
+                    <span class="v-card-num">02</span>
+                    <div class="v-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                </div>
+                <h3>IT, Technology &amp; Digital</h3>
+                <p>Custom software development, UI/UX and frontend specialisation, cloud &amp; automation, AI integration, enterprise IT services, e-commerce platforms, and managed services.</p>
+                <div class="v-card-footer">
+                    <a href="#" class="v-link">Explore →</a>
+                </div>
+            </div>
+            <div class="v-card" data-num="03">
+                <div class="v-card-top">
+                    <span class="v-card-num">03</span>
+                    <div class="v-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                </div>
+                <h3>PR, Branding &amp; Marketing</h3>
+                <p>Brand identity and strategy, public relations, content and digital marketing, campaign management, and performance-led communications for credible commercial brands.</p>
+                <div class="v-card-footer">
+                    <a href="#" class="v-link">Explore →</a>
+                </div>
+            </div>
+            <div class="v-card" data-num="04">
+                <div class="v-card-top">
+                    <span class="v-card-num">04</span>
+                    <div class="v-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                </div>
+                <h3>Events &amp; Experiential</h3>
+                <p>End-to-end event production, corporate conferences, product launches, MICE experiences, and large-format experiential activations delivered at scale.</p>
+                <div class="v-card-footer">
+                    <a href="#" class="v-link">Explore →</a>
+                </div>
+            </div>
+            <div class="v-card" data-num="05">
+                <div class="v-card-top">
+                    <span class="v-card-num">05</span>
+                    <div class="v-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                    </div>
+                </div>
+                <h3>HR, Manpower &amp; Compliance</h3>
+                <p>Company formation &amp; registration, GST, MSME, copyright &amp; trademark, NGO/trust compliance, government affiliations, ISO, FSSAI, and statutory certifications.</p>
+                <div class="v-card-footer">
+                    <a href="#" class="v-link">Explore →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== OUR MODEL ===================== -->
+<section class="model-section" id="model">
+    <div class="model-inner">
+        <div class="model-header">
+            <div class="model-header-left">
+                <span class="eyebrow eyebrow--light">How We Engage</span>
+                <h2 class="section-display section-display--white">A Repeatable<br>Delivery Model.</h2>
+            </div>
+            <p class="model-desc">Every RSX engagement follows a structured five-stage model — built to ensure nothing falls through the cracks between strategy and execution.</p>
+        </div>
+        <div class="model-steps">
+            <div class="model-step">
+                <div class="step-circle">1</div>
+                <h4>Discover</h4>
+                <p>Understand your business context, goals, gaps, and constraints before recommending anything.</p>
+            </div>
+            <div class="model-connector">→</div>
+            <div class="model-step">
+                <div class="step-circle">2</div>
+                <h4>Structure</h4>
+                <p>Design the right operating model, governance framework, and cross-functional team structure.</p>
+            </div>
+            <div class="model-connector">→</div>
+            <div class="model-step">
+                <div class="step-circle">3</div>
+                <h4>Execute</h4>
+                <p>Deploy expert teams across all required functions simultaneously — not sequentially.</p>
+            </div>
+            <div class="model-connector">→</div>
+            <div class="model-step">
+                <div class="step-circle">4</div>
+                <h4>Govern</h4>
+                <p>Maintain compliance, accountability, and real-time visibility at every stage of delivery.</p>
+            </div>
+            <div class="model-connector">→</div>
+            <div class="model-step">
+                <div class="step-circle step-circle--accent">5</div>
+                <h4>Scale</h4>
+                <p>Systematically expand what works — across geographies, verticals, and business functions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== LEADERSHIP ===================== -->
+<section class="team-section" id="team">
+    <div class="team-container">
+        <span class="eyebrow" style="display:block;text-align:center;">Leadership</span>
+        <h2 class="section-display" style="text-align:center;margin-top:8px;">Operators with<br>Real Ownership.</h2>
+        <div class="section-rule"></div>
+        <div class="team-grid">
+
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <div class="card-image">
+                            <img src="assets/images/profile-pics/sidd.png" alt="Siddhartha Chakraborty"
+                                 onerror="this.parentElement.innerHTML='<div class=card-ph>SC</div>'">
+                        </div>
+                        <div class="card-front-info">
+                            <h3>Siddhartha Chakraborty</h3>
+                            <p class="card-role">Group CEO</p>
+                        </div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-back-body">
+                            <p>Hospitality and operations leader driving RSX's flagship vertical and overall group strategy. Deep expertise in hotel management, revenue planning, and F&amp;B operations.</p>
+                            <a href="mailto:support@ranshx.com" class="card-cta">Get in Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <div class="card-image">
+                            <img src="assets/images/profile-pics/src.jpeg" alt="Saurabh Chakraborty"
+                                 onerror="this.parentElement.innerHTML='<div class=card-ph>SRC</div>'">
+                        </div>
+                        <div class="card-front-info">
+                            <h3>Saurabh Chakraborty</h3>
+                            <p class="card-role">Director — Technology Integration</p>
+                        </div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-back-body">
+                            <p>Engineering manager and mobile &amp; cloud platform leader with 16+ years delivering enterprise technology across iOS, Android, AWS, Azure, and GCP for global clients.</p>
+                            <a href="mailto:support@ranshx.com" class="card-cta">Get in Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <div class="card-image">
+                            <img src="assets/images/profile-pics/hema.jpeg" alt="Hema Vyas"
+                                 onerror="this.parentElement.innerHTML='<div class=card-ph>HV</div>'">
+                        </div>
+                        <div class="card-front-info">
+                            <h3>Hema Vyas</h3>
+                            <p class="card-role">Director — Compliance &amp; HR</p>
+                        </div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-back-body">
+                            <p>Expert in HR strategy, statutory compliance, company formation, and regulatory navigation across GST, MSME, FSSAI, and government certification frameworks.</p>
+                            <a href="mailto:support@ranshx.com" class="card-cta">Get in Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-card">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <div class="card-image">
+                            <img src="assets/images/profile-pics/rishi.jpeg" alt="Rahul Rishi"
+                                 onerror="this.parentElement.innerHTML='<div class=card-ph>RR</div>'">
+                        </div>
+                        <div class="card-front-info">
+                            <h3>Rahul Rishi</h3>
+                            <p class="card-role">Creative Director</p>
+                        </div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-back-body">
+                            <p>Creative strategist leading brand identity, narrative design, and integrated marketing for RSX's portfolio companies and client brands across sectors.</p>
+                            <a href="mailto:support@ranshx.com" class="card-cta">Get in Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact-section" id="contact">
+    <div class="contact-pill contact-pill--a"></div>
+    <div class="contact-pill contact-pill--b"></div>
+    <div class="contact-inner">
+        <div class="contact-left">
+            <span class="eyebrow eyebrow--light">Let's Connect</span>
+            <h2 class="section-display section-display--white">Ready to build<br>something that scales?</h2>
+            <p>Whether you're a founder, operator, or institution — we'd like to understand your goals before recommending anything.</p>
+        </div>
+        <div class="contact-right">
+            <div class="contact-card">
+                <a href="mailto:support@ranshx.com" class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="contact-label">Email</p>
+                        <p class="contact-value">support@ranshx.com</p>
+                    </div>
+                </a>
+                <a href="tel:+919873602717" class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="contact-label">Phone</p>
+                        <p class="contact-value">+91 98736 02717</p>
+                    </div>
+                </a>
+                <a href="tel:+917276136594" class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="contact-label">Alternate</p>
+                        <p class="contact-value">+91 72761 36594</p>
+                    </div>
+                </a>
+                <a href="https://www.ranshx.com" target="_blank" rel="noopener" class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="contact-label">Web</p>
+                        <p class="contact-value">www.ranshx.com</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+    <div class="footer-main">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="assets/images/logo/rsx_logo_final_white.png" alt="RSX Logo" class="footer-logo-img"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                <span class="footer-logo-text" style="display:none;">RSX</span>
+                <!-- <span class="footer-tagline">RanShX Global</span> -->
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <p class="footer-col-head">Company</p>
+                    <a href="#">Company Overview</a>
+                    <a href="#">Leadership</a>
+                    <a href="#">Careers ↗</a>
+                    <a href="#">Media</a>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-head">Verticals</p>
+                    <a href="#">Hospitality &amp; Food</a>
+                    <a href="#">Technology &amp; Digital</a>
+                    <a href="#">PR &amp; Branding</a>
+                    <a href="#">HR &amp; Compliance</a>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-head">Resources</p>
+                    <a href="#">Client Stories</a>
+                    <a href="#">Insights</a>
+                    <a href="#">SPEED Approach</a>
+                    <a href="#">Locations</a>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-head">Legal</p>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Settings</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 RSX — RanShX Global. All rights reserved.</span>
+        <div class="footer-social">
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                    <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="Twitter / X">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

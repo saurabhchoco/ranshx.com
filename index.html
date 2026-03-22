@@ -1,608 +1,901 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RSX — RanShX Global</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>H. N. Vyas Projects Pvt. Ltd. | Vyas Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --clay: #8B4A2B;
+    --clay-light: #C47A4A;
+    --clay-pale: #F5E8DC;
+    --amber: #D4882A;
+    --amber-light: #F0B04A;
+    --ink: #1A1208;
+    --warm-white: #FDFAF6;
+    --stone: #7A6A5A;
+    --stone-light: #B8A898;
+    --off-white: #F0EAE0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 4rem;
+    background: rgba(253,250,246,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(139,74,43,0.12);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 32px rgba(139,74,43,0.10); }
+  .nav-logo {
+    display: flex; align-items: center; gap: .75rem;
+    text-decoration: none;
+  }
+  .nav-logo svg { width: 36px; height: 36px; }
+  .nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--clay); line-height: 1.1; }
+  .nav-logo-sub { font-size: .65rem; font-weight: 500; color: var(--stone); letter-spacing: .08em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; font-size: .875rem; font-weight: 500; color: var(--stone); letter-spacing: .03em; transition: color .2s; }
+  .nav-links a:hover { color: var(--clay); }
+  .nav-cta {
+    background: var(--clay); color: #fff;
+    padding: .55rem 1.4rem; border-radius: 4px;
+    font-size: .8rem; font-weight: 600; text-decoration: none;
+    letter-spacing: .06em; text-transform: uppercase;
+    transition: background .2s, transform .2s;
+  }
+  .nav-cta:hover { background: var(--clay-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; place-items: center;
+    background: var(--ink);
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(139,74,43,0.35) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(212,136,42,0.20) 0%, transparent 60%);
+  }
+  .hero-grid-overlay {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    position: relative; z-index: 1;
+    text-align: center; padding: 8rem 2rem 4rem;
+    animation: heroFade 1.2s ease both;
+  }
+  @keyframes heroFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(212,136,42,0.18); border: 1px solid rgba(212,136,42,0.4);
+    color: var(--amber-light); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+    padding: .4rem 1rem; border-radius: 2px; margin-bottom: 2rem;
+  }
+  .hero-v {
+    width: 80px; margin: 0 auto 1.5rem;
+    animation: heroFade 1s ease .1s both;
+  }
+  h1.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 900; color: #fff; line-height: 1.05;
+    margin-bottom: 1rem;
+    animation: heroFade 1s ease .2s both;
+  }
+  h1.hero-title span { color: var(--amber-light); }
+  .hero-sub {
+    font-size: clamp(.95rem, 1.8vw, 1.15rem);
+    color: rgba(255,255,255,0.55); max-width: 580px; margin: 0 auto 2.5rem;
+    line-height: 1.7; font-weight: 300;
+    animation: heroFade 1s ease .35s both;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    animation: heroFade 1s ease .5s both;
+  }
+  .btn-primary {
+    background: var(--clay); color: #fff;
+    padding: .85rem 2rem; border-radius: 4px;
+    font-size: .875rem; font-weight: 600; text-decoration: none;
+    letter-spacing: .06em; text-transform: uppercase;
+    transition: background .25s, transform .2s;
+  }
+  .btn-primary:hover { background: var(--clay-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.75);
+    padding: .85rem 2rem; border-radius: 4px;
+    font-size: .875rem; font-weight: 500; text-decoration: none;
+    letter-spacing: .06em; text-transform: uppercase;
+    transition: border-color .25s, color .25s;
+  }
+  .btn-outline:hover { border-color: var(--amber-light); color: var(--amber-light); }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 4rem; margin-top: 5rem;
+    border-top: 1px solid rgba(255,255,255,0.08); padding-top: 3rem;
+    flex-wrap: wrap;
+    animation: heroFade 1s ease .65s both;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; font-weight: 700; color: var(--amber-light);
+  }
+  .hero-stat-label { font-size: .75rem; color: rgba(255,255,255,0.4); letter-spacing: .1em; text-transform: uppercase; margin-top: .25rem; }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 4rem; }
+  .section-eyebrow {
+    font-size: .7rem; font-weight: 600; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--clay);
+    margin-bottom: .75rem;
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.1; color: var(--ink);
+    margin-bottom: 1.2rem;
+  }
+  .section-lead {
+    font-size: 1.05rem; color: var(--stone); max-width: 600px; line-height: 1.7; font-weight: 300;
+  }
+  .section-header { max-width: 1200px; margin: 0 auto 4rem; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--warm-white); }
+  .about-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+  }
+  .about-left h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1.5rem; }
+  .about-left p { color: var(--stone); line-height: 1.8; font-size: .975rem; font-weight: 300; margin-bottom: 1rem; }
+  .about-right { display: flex; flex-direction: column; gap: 2rem; }
+  .about-card {
+    background: var(--off-white); border-left: 3px solid var(--clay);
+    padding: 1.5rem 1.8rem; border-radius: 0 8px 8px 0;
+  }
+  .about-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--clay); margin-bottom: .5rem; }
+  .about-card p { color: var(--stone); font-size: .875rem; line-height: 1.6; font-weight: 300; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--ink); }
+  #services .section-eyebrow { color: var(--amber-light); }
+  #services h2.section-title { color: #fff; }
+  #services .section-lead { color: rgba(255,255,255,0.45); }
+  .services-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+  }
+  .service-card {
+    background: rgba(255,255,255,0.04);
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: background .3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content:''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: linear-gradient(90deg, var(--clay), var(--amber));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .35s ease;
+  }
+  .service-card:hover { background: rgba(255,255,255,0.07); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { font-size: 1.8rem; margin-bottom: 1.2rem; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 1rem; }
+  .service-card ul { list-style: none; padding: 0; }
+  .service-card ul li { color: rgba(255,255,255,0.45); font-size: .825rem; font-weight: 300; padding: .35rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); line-height: 1.5; }
+  .service-card ul li:last-child { border-bottom: none; }
+  .service-card ul li::before { content: '→ '; color: var(--amber); font-size: .75rem; }
+
+  /* ── SPECIALIZED SERVICES ── */
+  #specialized { background: var(--clay-pale); }
+  .spec-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+  }
+  .spec-card {
+    background: #fff; padding: 2rem;
+    border-radius: 8px; border: 1px solid rgba(139,74,43,0.10);
+    box-shadow: 0 2px 16px rgba(139,74,43,0.06);
+    transition: transform .25s, box-shadow .25s;
+  }
+  .spec-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(139,74,43,0.12); }
+  .spec-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--clay); margin-bottom: .75rem; display: flex; align-items: center; gap: .5rem; }
+  .spec-card ul { list-style: none; padding: 0; }
+  .spec-card ul li { color: var(--stone); font-size: .82rem; font-weight: 300; padding: .3rem 0; line-height: 1.5; }
+  .spec-card ul li::before { content: '• '; color: var(--amber); }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--warm-white); }
+  .projects-list { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+  .project-item {
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: start; gap: 2rem;
+    background: #fff; border: 1px solid rgba(139,74,43,0.10);
+    border-radius: 8px; padding: 2rem 2.5rem;
+    box-shadow: 0 2px 12px rgba(139,74,43,0.05);
+    transition: border-color .25s, transform .25s;
+  }
+  .project-item:hover { border-color: var(--clay-light); transform: translateX(4px); }
+  .project-type {
+    background: var(--clay); color: #fff;
+    font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600;
+    padding: .4rem .9rem; border-radius: 2px; white-space: nowrap; height: fit-content;
+    margin-top: .2rem;
+  }
+  .project-type.private { background: var(--amber); }
+  .project-info h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
+  .project-info p { color: var(--stone); font-size: .875rem; line-height: 1.6; font-weight: 300; margin-bottom: .5rem; }
+  .project-meta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .project-tag {
+    font-size: .75rem; font-weight: 500; color: var(--stone);
+    background: var(--off-white); border-radius: 3px; padding: .25rem .65rem;
+  }
+  .project-value {
+    font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
+    color: var(--clay); white-space: nowrap;
+  }
+  .project-value span { display: block; font-family: 'DM Sans', sans-serif; font-size: .7rem; font-weight: 500; color: var(--stone-light); text-transform: uppercase; letter-spacing: .08em; }
+
+  /* ── CLIENTELE ── */
+  #clients { background: var(--ink); padding: 5rem 4rem; }
+  #clients .section-eyebrow { color: var(--amber-light); }
+  #clients h2.section-title { color: #fff; }
+  .clients-strip {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 1.5rem 2rem; align-items: center; justify-content: center;
+  }
+  .client-name {
+    color: rgba(255,255,255,0.28); font-size: .8rem; font-weight: 500; letter-spacing: .08em;
+    text-transform: uppercase; padding: .6rem 1.2rem;
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 3px;
+    transition: color .25s, border-color .25s;
+  }
+  .client-name:hover { color: rgba(255,255,255,0.75); border-color: rgba(212,136,42,0.4); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--clay-pale); }
+  .contact-wrapper {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+  }
+  .contact-left h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem; }
+  .contact-left p { color: var(--stone); font-size: .925rem; line-height: 1.7; font-weight: 300; margin-bottom: 2rem; }
+  .contact-items { display: flex; flex-direction: column; gap: 1.25rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-item-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: var(--clay); border-radius: 6px;
+    display: grid; place-items: center; color: #fff; font-size: 1rem;
+  }
+  .contact-item-text strong { display: block; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--stone); margin-bottom: .25rem; }
+  .contact-item-text span { font-size: .9rem; color: var(--ink); font-weight: 400; line-height: 1.5; }
+  .contact-right { background: #fff; border-radius: 10px; padding: 2.5rem; box-shadow: 0 4px 32px rgba(139,74,43,0.08); }
+  .contact-right h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--stone); margin-bottom: .5rem; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: .75rem 1rem;
+    border: 1.5px solid rgba(139,74,43,0.15); border-radius: 5px;
+    font-family: 'DM Sans', sans-serif; font-size: .9rem; color: var(--ink);
+    background: var(--warm-white); outline: none;
+    transition: border-color .2s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--clay); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%; background: var(--clay); color: #fff;
+    padding: .9rem; border: none; border-radius: 5px; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: .875rem; font-weight: 600;
+    letter-spacing: .06em; text-transform: uppercase;
+    transition: background .25s;
+  }
+  .form-submit:hover { background: var(--clay-light); }
+
+  /* ── BRANCHES ── */
+  #branches { background: var(--warm-white); }
+  .branches-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem;
+  }
+  .branch-card {
+    padding: 1.5rem; border-radius: 8px;
+    border: 1px solid rgba(139,74,43,0.10);
+    background: #fff;
+  }
+  .branch-card h3 { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--clay); margin-bottom: .75rem; }
+  .branch-card ul { list-style: none; padding: 0; }
+  .branch-card ul li { font-size: .82rem; color: var(--stone); font-weight: 300; padding: .2rem 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,0.4);
+    padding: 3rem 4rem;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: .95rem; color: rgba(255,255,255,0.6); }
+  .footer-brand span { color: var(--amber-light); }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { text-decoration: none; font-size: .78rem; color: rgba(255,255,255,0.35); letter-spacing: .05em; transition: color .2s; }
+  .footer-links a:hover { color: var(--amber-light); }
+  .footer-copy { font-size: .72rem; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px){
+    nav { padding: 1rem 1.5rem; }
+    .nav-links, .nav-cta { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .branches-grid { grid-template-columns: 1fr 1fr; }
+    .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
+    .project-item { grid-template-columns: 1fr; }
+    .project-value { font-size: 1.2rem; }
+    footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+    .hero-stats { gap: 2rem; }
+  }
+  @media(max-width:600px){
+    .branches-grid { grid-template-columns: 1fr; }
+    h1.hero-title { font-size: 2.4rem; }
+  }
+</style>
 </head>
 <body>
 
-<!-- ===================== NAVBAR ===================== -->
-<header class="navbar">
-    <div class="nav-container">
-        <a href="#" class="logo">
-            <img src="assets/images/logo/rsx_logo_final_dark.png" alt="RSX Logo"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-            <span class="logo-text" style="display:none;">RSX</span>
-            <!-- <span class="logo-tagline">RanShX Global</span> -->
-        </a>
-
-        <nav class="nav-wrapper" id="navWrapper">
-            <ul class="nav-menu">
-                <li data-mega="business"><a href="#">Business</a></li>
-                <li data-mega="about"><a href="#">About</a></li>
-                <li data-mega="solutions"><a href="#">Solutions</a></li>
-                <li data-mega="insights"><a href="#">Insights</a></li>
-                <li><a href="#">Careers</a></li>
-            </ul>
-        </nav>
-
-        <div class="nav-controls">
-            <a href="#contact" class="btn-outline">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-                </svg>
-                Contact Us
-            </a>
-            <div class="theme-switch">
-                <input type="checkbox" id="themeToggle">
-                <label for="themeToggle" class="toggle-slider" title="Toggle theme">
-                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                        <circle cx="12" cy="12" r="5"/>
-                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                    </svg>
-                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-                    </svg>
-                </label>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span><span></span>
-            </button>
-        </div>
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">
+    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="5,8 30,52 55,8 45,8 30,38 15,8" fill="url(#vGrad)"/>
+      <defs>
+        <linearGradient id="vGrad" x1="5" y1="8" x2="55" y2="52" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#C47A4A"/>
+          <stop offset="100%" stop-color="#6B3420"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div>
+      <div class="nav-logo-text">Vyas Group</div>
+      <div class="nav-logo-sub">H.N. Vyas Projects Pvt. Ltd.</div>
     </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
 
-    <!-- MEGA MENU -->
-    <div class="mega-menu" id="megaMenu">
-        <div class="mega-inner" id="megaInner">
-
-            <div class="mega-content business active">
-                <div class="mega-grid">
-                    <div class="mega-section">
-                        <p class="mega-label">Overview</p>
-                        <h3>RanShX Global</h3>
-                        <div class="mega-divider"></div>
-                        <a href="#" class="mega-link">Learn More</a>
-                    </div>
-                    <div>
-                        <p class="mega-label">THE GROUP</p>
-                        <div class="mega-divider"></div>
-                        <div class="mega-columns">
-                            <ul>
-                                <li>Company Overview</li>
-                                <li>Our Model</li>
-                                <li>Leadership</li>
-                                
-                            </ul>
-                            <ul>
-                                <li>SPEED Approach</li>
-                                <li>Why RSX</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mega-content about">
-                <div class="mega-grid">
-                    <div class="mega-section">
-                        <p class="mega-label">Who We Are</p>
-                        <h3>About RSX</h3>
-                        <div class="mega-divider"></div>
-                        <a href="#" class="mega-link">Our Story</a>
-                    </div>
-                    <div>
-                        <p class="mega-label">The Group</p>
-                        <div class="mega-divider"></div>
-                        <div class="mega-columns">
-                            <ul>
-                                <li>Company Overview</li>
-                                <li>Leadership Team</li>
-                                <li>Our Model</li>
-                            </ul>
-                            <ul>
-                                <li>SPEED Approach</li>
-                                <li>Locations</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mega-content solutions">
-                <div class="mega-grid">
-                    <div class="mega-section">
-                        <p class="mega-label">What We Do</p>
-                        <h3>Our Verticals</h3>
-                        <div class="mega-divider"></div>
-                        <a href="#verticals" class="mega-link">See All</a>
-                    </div>
-                    <div>
-                        <p class="mega-label">Business Verticals</p>
-                        <div class="mega-divider"></div>
-                        <div class="mega-columns">
-                            <ul>
-                                <li>Hospitality &amp; Food Business</li>
-                                <li>Technology &amp; Digital Transformation</li>
-                                <li>PR, Branding &amp; Marketing</li>
-                            </ul>
-                            <ul>
-                                <li>Events &amp; Experiential</li>
-                                <li>HR, Manpower &amp; Compliance</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mega-content insights">
-                <div class="mega-grid">
-                    <div class="mega-section">
-                        <p class="mega-label">Resources</p>
-                        <h3>Insights</h3>
-                        <div class="mega-divider"></div>
-                        <a href="#" class="mega-link">View All</a>
-                    </div>
-                    <div>
-                        <p class="mega-label">Explore</p>
-                        <div class="mega-divider"></div>
-                        <div class="mega-columns">
-                            <ul>
-                                <li>Client Stories</li>
-                                <li>Case Studies</li>
-                                <li>Industry Reports</li>
-                            </ul>
-                            <ul>
-                                <li>Blog &amp; Articles</li>
-                                <li>Media &amp; Press</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Vyas Group · Est. 2003</div>
+    <svg class="hero-v" viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,5 40,65 80,5 65,5 40,48 15,5" fill="url(#heroGrad)"/>
+      <defs>
+        <linearGradient id="heroGrad" x1="0" y1="5" x2="80" y2="65" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#F0B04A"/>
+          <stop offset="100%" stop-color="#8B4A2B"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <h1 class="hero-title">H. N. Vyas Projects<br/><span>Pvt. Ltd.</span></h1>
+    <p class="hero-sub">Next-generation project consultancy — bridging corporate vision with grassroots impact across Infrastructure, IT, Education, Welfare, and Health.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Explore Services</a>
+      <a href="#projects" class="btn-outline">Our Projects</a>
     </div>
-</header>
-
-<!-- ===================== HERO ===================== -->
-<section class="hero">
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-pill hero-pill--a"></div>
-    <div class="hero-pill hero-pill--b"></div>
-    <div class="hero-inner">
-        <!-- <p class="hero-kicker">RSX · RanShX Global</p> -->
-        <h1>Strategy Executed.<br><span class="h1-outline">Growth Delivered.</span></h1>
-        <p class="hero-sub">An integrated group operating at the intersection of strategy, execution, technology, and governance — enabling clients to scale without fragmentation.</p>
-        <a href="#contact" class="btn-primary">Work With Us</a>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">15+</div>
+        <div class="hero-stat-label">Years of Experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">35</div>
+        <div class="hero-stat-label">Committed Professionals</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6+</div>
+        <div class="hero-stat-label">States Covered</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">₹60Cr+</div>
+        <div class="hero-stat-label">Projects Executed</div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- ===================== POSITIONING STRIP ===================== -->
-<div class="ticker-strip">
-    <div class="ticker-track">
-        <div class="ticker-content">
-            <span>One Group. Five Verticals.</span>
-            <span class="ticker-dot">✦</span>
-            <span>Promoter-Led Delivery.</span>
-            <span class="ticker-dot">✦</span>
-            <span>From Concept to Compliance.</span>
-            <span class="ticker-dot">✦</span>
-            <span>Startups to Institutions.</span>
-            <span class="ticker-dot">✦</span>
-            <span>Execution-First. Governance-Led.</span>
-            <span class="ticker-dot">✦</span>
-            <span>Strategy Executed. Growth Delivered.</span>
-            <span class="ticker-dot">✦</span>
-        </div>
-        <!-- Duplicate for seamless loop -->
-        <div class="ticker-content" aria-hidden="true">
-            <span>One Group. Five Verticals.</span>
-            <span class="ticker-dot">✦</span>
-            <span>Promoter-Led Delivery.</span>
-            <span class="ticker-dot">✦</span>
-            <span>From Concept to Compliance.</span>
-            <span class="ticker-dot">✦</span>
-            <span>Startups to Institutions.</span>
-            <span class="ticker-dot">✦</span>
-            <span>Execution-First. Governance-Led.</span>
-            <span class="ticker-dot">✦</span>
-            <span>Strategy Executed. Growth Delivered.</span>
-            <span class="ticker-dot">✦</span>
-        </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <p class="section-eyebrow">Who We Are</p>
+      <h2>Grassroots Reality meets Progressive Vision</h2>
+      <p>H.N. Vyas Projects Pvt. Ltd. (formerly AEGIS Consultancy) is a Next-Gen consultancy founded by two visionary entrepreneurs with over 15 years of experience in project design, procurement, execution, and commissioning.</p>
+      <p>With feet on the ground and eyes on the horizon, we combine grassroots reality with developmental aspirations of citizens across villages, talukas, and districts of India.</p>
+      <p>Through Corporate Social Responsibility, we provide expert, transparent, end-to-end project implementation services — ensuring every rupee is invested for intended social welfare.</p>
     </div>
-</div>
-
-<!-- ===================== WHAT WE DO ===================== -->
-<section class="about-section" id="about">
-    <div class="about-inner">
-        <div class="about-left">
-            <span class="eyebrow">What We Do</span>
-            <h2 class="section-display">One Partner.<br>Full Accountability.</h2>
-            <p>RSX is a multi-vertical group built to eliminate the fragmentation that stalls growth. We bring operational depth, enterprise technology capability, creative brand-building, and regulatory expertise under a single integrated structure.</p>
-            <p>Every engagement is promoter-led — senior ownership from discovery through delivery, not handed down to junior teams.</p>
-            <div class="about-stats">
-                <div class="about-stat">
-                    <h3>5</h3>
-                    <p>Business Verticals</p>
-                </div>
-                <div class="about-stat">
-                    <h3>1</h3>
-                    <p>Integrated Group</p>
-                </div>
-                <div class="about-stat">
-                    <h3>25+</h3>
-                    <p>Years Experience</p>
-                </div>
-            </div>
-            <a href="#verticals" class="btn-ghost">Explore Our Verticals →</a>
-        </div>
-        <div class="about-right">
-            <div class="value-card">
-                <div class="value-num">01</div>
-                <h4>Execution-First</h4>
-                <p>We focus on outcomes that can be tracked, measured, and trusted — not decks and recommendations.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-num">02</div>
-                <h4>Governance-Led</h4>
-                <p>Compliance, structure, and accountability are built in from day one, not retrofitted after problems emerge.</p>
-            </div>
-            <div class="value-card">
-                <div class="value-num">03</div>
-                <h4>Integrated by Design</h4>
-                <p>Every vertical within RSX operates as part of one group — enabling cross-functional delivery no standalone consultant can match.</p>
-            </div>
-        </div>
+    <div class="about-right">
+      <div class="about-card">
+        <h3>🏛️ Management</h3>
+        <p>Led by <strong>Hema Vyas</strong>, Director — MBA HR, an entrepreneur with 15 years of rich experience in People and Project Management.</p>
+      </div>
+      <div class="about-card">
+        <h3>👥 Our Team</h3>
+        <p>35 committed professionals, organized department-wise and dedicated to each project with precision and accountability.</p>
+      </div>
+      <div class="about-card">
+        <h3>🌐 Our Reach</h3>
+        <p>Operating across Gujarat, Rajasthan, Maharashtra, Madhya Pradesh, Delhi NCR, and Diu Daman — with 20+ branch locations pan-India.</p>
+      </div>
+      <div class="about-card">
+        <h3>🤝 Our Approach</h3>
+        <p>Expert, transparent and end-to-end project implementation services connecting corporate intent with community-level outcomes.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- ===================== OUR VERTICALS ===================== -->
-<section class="verticals-section" id="verticals">
-    <div class="verticals-inner">
-        <div class="verticals-header">
-            <span class="eyebrow">Our Business Verticals</span>
-            <h2 class="section-display">Five Practices.<br><span class="display-outline">One Group.</span></h2>
-        </div>
-        <div class="verticals-grid">
-            <div class="v-card" data-num="01">
-                <div class="v-card-top">
-                    <span class="v-card-num">01</span>
-                    <div class="v-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                    </div>
-                </div>
-                <h3>Hospitality &amp; Food Business</h3>
-                <p>Hotel operations &amp; management contracts, revenue planning, OTA &amp; MICE strategy, concept &amp; menu development, chef training, kitchen planning, SOP design, and audit reporting.</p>
-                <div class="v-card-footer">
-                    <a href="#" class="v-link">Explore →</a>
-                </div>
-            </div>
-            <div class="v-card" data-num="02">
-                <div class="v-card-top">
-                    <span class="v-card-num">02</span>
-                    <div class="v-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                    </div>
-                </div>
-                <h3>IT, Technology &amp; Digital</h3>
-                <p>Custom software development, UI/UX and frontend specialisation, cloud &amp; automation, AI integration, enterprise IT services, e-commerce platforms, and managed services.</p>
-                <div class="v-card-footer">
-                    <a href="#" class="v-link">Explore →</a>
-                </div>
-            </div>
-            <div class="v-card" data-num="03">
-                <div class="v-card-top">
-                    <span class="v-card-num">03</span>
-                    <div class="v-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-                    </div>
-                </div>
-                <h3>PR, Branding &amp; Marketing</h3>
-                <p>Brand identity and strategy, public relations, content and digital marketing, campaign management, and performance-led communications for credible commercial brands.</p>
-                <div class="v-card-footer">
-                    <a href="#" class="v-link">Explore →</a>
-                </div>
-            </div>
-            <div class="v-card" data-num="04">
-                <div class="v-card-top">
-                    <span class="v-card-num">04</span>
-                    <div class="v-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-                    </div>
-                </div>
-                <h3>Events &amp; Experiential</h3>
-                <p>End-to-end event production, corporate conferences, product launches, MICE experiences, and large-format experiential activations delivered at scale.</p>
-                <div class="v-card-footer">
-                    <a href="#" class="v-link">Explore →</a>
-                </div>
-            </div>
-            <div class="v-card" data-num="05">
-                <div class="v-card-top">
-                    <span class="v-card-num">05</span>
-                    <div class="v-card-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-                    </div>
-                </div>
-                <h3>HR, Manpower &amp; Compliance</h3>
-                <p>Company formation &amp; registration, GST, MSME, copyright &amp; trademark, NGO/trust compliance, government affiliations, ISO, FSSAI, and statutory certifications.</p>
-                <div class="v-card-footer">
-                    <a href="#" class="v-link">Explore →</a>
-                </div>
-            </div>
-        </div>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <p class="section-eyebrow">What We Do</p>
+    <h2 class="section-title" style="color:#fff">Comprehensive Project &amp; Consultancy Services</h2>
+    <p class="section-lead">From CSR strategy to NGO compliance — we handle everything so you can focus on impact.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🏢</div>
+      <h3>For Companies &amp; Corporates</h3>
+      <ul>
+        <li>Developing CSR Strategy &amp; Programs</li>
+        <li>Scouting eligible Trusts / NGOs / Partners</li>
+        <li>Planning &amp; Implementation</li>
+        <li>Monitoring &amp; Reporting</li>
+        <li>Impact Evaluation &amp; Brand Visibility</li>
+        <li>Appraising with Innovative Insights</li>
+      </ul>
     </div>
+    <div class="service-card">
+      <div class="service-icon">🏛️</div>
+      <h3>For Trusts &amp; NGOs</h3>
+      <ul>
+        <li>Welfare Activity Identification</li>
+        <li>Application / Proposal Process</li>
+        <li>Detailed Project Design or Plan</li>
+        <li>Procuring Competitive Quotes</li>
+        <li>Permissions &amp; Liaison with Departments</li>
+        <li>Accounting of Expenses / Funds</li>
+        <li>Monitoring &amp; Timely Completion</li>
+        <li>Compliance &amp; Documentation</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👔</div>
+      <h3>HR &amp; Manpower (Agies Consultancy)</h3>
+      <ul>
+        <li>Human Resources Consulting</li>
+        <li>Manpower Services</li>
+        <li>Payroll Management</li>
+        <li>Training &amp; Development</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📋</div>
+      <h3>Project Management</h3>
+      <ul>
+        <li>Project Sourcing &amp; Funding</li>
+        <li>Design Strategy &amp; Implementation</li>
+        <li>Budgeting &amp; Accounting</li>
+        <li>Procurement</li>
+        <li>Completion Reporting</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📜</div>
+      <h3>Trust / NGO Registration</h3>
+      <ul>
+        <li>Trust &amp; Society Registration</li>
+        <li>Section 8 Non-Profit Company</li>
+        <li>Co-Operative Society</li>
+        <li>NGO Darpan / NITI AYOG</li>
+        <li>12AA, 80G, 35AC Certifications</li>
+        <li>FCRA Registration &amp; Renewal</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💰</div>
+      <h3>Fund Raising &amp; Visibility</h3>
+      <ul>
+        <li>Government &amp; Private Fund Raising</li>
+        <li>CSR Funding (Guaranteed)</li>
+        <li>Project Setup &amp; Implementation</li>
+        <li>NGO Web Development</li>
+        <li>Social Media Publicity</li>
+        <li>Annual Report &amp; Profile Writing</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<!-- ===================== OUR MODEL ===================== -->
-<section class="model-section" id="model">
-    <div class="model-inner">
-        <div class="model-header">
-            <div class="model-header-left">
-                <span class="eyebrow eyebrow--light">How We Engage</span>
-                <h2 class="section-display section-display--white">A Repeatable<br>Delivery Model.</h2>
-            </div>
-            <p class="model-desc">Every RSX engagement follows a structured five-stage model — built to ensure nothing falls through the cracks between strategy and execution.</p>
-        </div>
-        <div class="model-steps">
-            <div class="model-step">
-                <div class="step-circle">1</div>
-                <h4>Discover</h4>
-                <p>Understand your business context, goals, gaps, and constraints before recommending anything.</p>
-            </div>
-            <div class="model-connector">→</div>
-            <div class="model-step">
-                <div class="step-circle">2</div>
-                <h4>Structure</h4>
-                <p>Design the right operating model, governance framework, and cross-functional team structure.</p>
-            </div>
-            <div class="model-connector">→</div>
-            <div class="model-step">
-                <div class="step-circle">3</div>
-                <h4>Execute</h4>
-                <p>Deploy expert teams across all required functions simultaneously — not sequentially.</p>
-            </div>
-            <div class="model-connector">→</div>
-            <div class="model-step">
-                <div class="step-circle">4</div>
-                <h4>Govern</h4>
-                <p>Maintain compliance, accountability, and real-time visibility at every stage of delivery.</p>
-            </div>
-            <div class="model-connector">→</div>
-            <div class="model-step">
-                <div class="step-circle step-circle--accent">5</div>
-                <h4>Scale</h4>
-                <p>Systematically expand what works — across geographies, verticals, and business functions.</p>
-            </div>
-        </div>
+<!-- SPECIALIZED SERVICES -->
+<section id="specialized">
+  <div class="section-header">
+    <p class="section-eyebrow">Specialized Services</p>
+    <h2 class="section-title">Documentation &amp; Compliance Support</h2>
+    <p class="section-lead">End-to-end compliance, registration and documentation services for NGOs, Trusts, and Social Enterprises.</p>
+  </div>
+  <div class="spec-grid">
+    <div class="spec-card">
+      <h3>📝 Documentation for NGOs</h3>
+      <ul>
+        <li>Annual Report Writing</li>
+        <li>Profile Formation of Organisation</li>
+        <li>Project Report Writing</li>
+        <li>Project Proposal Writing</li>
+      </ul>
     </div>
+    <div class="spec-card">
+      <h3>🌐 Online Registration</h3>
+      <ul>
+        <li>NGO Darpan / NITI AYOG</li>
+        <li>Online dept. registrations for recognition</li>
+        <li>Fund access under various schemes</li>
+      </ul>
+    </div>
+    <div class="spec-card">
+      <h3>🏅 Certifications</h3>
+      <ul>
+        <li>12 AA Registration</li>
+        <li>35 AC, 35(1)(ii) &amp; 35(1)(iii)</li>
+        <li>80 G Registration</li>
+        <li>PAN Card Registration</li>
+      </ul>
+    </div>
+    <div class="spec-card">
+      <h3>🌍 FCRA Compliance</h3>
+      <ul>
+        <li>FCRA Registration</li>
+        <li>FCRA Registration Renewal</li>
+        <li>FCRA Reports and Returns</li>
+      </ul>
+    </div>
+    <div class="spec-card">
+      <h3>💸 Fund Raising Support</h3>
+      <ul>
+        <li>Government Fund Raising Schemes</li>
+        <li>Private Fund Raising</li>
+        <li>Project Setup &amp; Implementation</li>
+        <li>CSR Funding, Guaranteed</li>
+      </ul>
+    </div>
+    <div class="spec-card">
+      <h3>📣 Publicity &amp; Identification</h3>
+      <ul>
+        <li>Web Development for NGO</li>
+        <li>Social Media Publicity</li>
+        <li>Beneficiary outreach programs</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<!-- ===================== LEADERSHIP ===================== -->
-<section class="team-section" id="team">
-    <div class="team-container">
-        <span class="eyebrow" style="display:block;text-align:center;">Leadership</span>
-        <h2 class="section-display" style="text-align:center;margin-top:8px;">Operators with<br>Real Ownership.</h2>
-        <div class="section-rule"></div>
-        <div class="team-grid">
-
-            <div class="team-card">
-                <div class="card-inner">
-                    <div class="card-face card-front">
-                        <div class="card-image">
-                            <img src="assets/images/profile-pics/sidd.png" alt="Siddhartha Chakraborty"
-                                 onerror="this.parentElement.innerHTML='<div class=card-ph>SC</div>'">
-                        </div>
-                        <div class="card-front-info">
-                            <h3>Siddhartha Chakraborty</h3>
-                            <p class="card-role">Group CEO</p>
-                        </div>
-                    </div>
-                    <div class="card-face card-back">
-                        <div class="card-back-body">
-                            <p>Hospitality and operations leader driving RSX's flagship vertical and overall group strategy. Deep expertise in hotel management, revenue planning, and F&amp;B operations.</p>
-                            <a href="mailto:support@ranshx.com" class="card-cta">Get in Touch</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-card">
-                <div class="card-inner">
-                    <div class="card-face card-front">
-                        <div class="card-image">
-                            <img src="assets/images/profile-pics/src.jpeg" alt="Saurabh Chakraborty"
-                                 onerror="this.parentElement.innerHTML='<div class=card-ph>SRC</div>'">
-                        </div>
-                        <div class="card-front-info">
-                            <h3>Saurabh Chakraborty</h3>
-                            <p class="card-role">Director — Technology Integration</p>
-                        </div>
-                    </div>
-                    <div class="card-face card-back">
-                        <div class="card-back-body">
-                            <p>Engineering manager and mobile &amp; cloud platform leader with 16+ years delivering enterprise technology across iOS, Android, AWS, Azure, and GCP for global clients.</p>
-                            <a href="mailto:support@ranshx.com" class="card-cta">Get in Touch</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-card">
-                <div class="card-inner">
-                    <div class="card-face card-front">
-                        <div class="card-image">
-                            <img src="assets/images/profile-pics/hema.jpeg" alt="Hema Vyas"
-                                 onerror="this.parentElement.innerHTML='<div class=card-ph>HV</div>'">
-                        </div>
-                        <div class="card-front-info">
-                            <h3>Hema Vyas</h3>
-                            <p class="card-role">Director — Compliance &amp; HR</p>
-                        </div>
-                    </div>
-                    <div class="card-face card-back">
-                        <div class="card-back-body">
-                            <p>Expert in HR strategy, statutory compliance, company formation, and regulatory navigation across GST, MSME, FSSAI, and government certification frameworks.</p>
-                            <a href="mailto:support@ranshx.com" class="card-cta">Get in Touch</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-card">
-                <div class="card-inner">
-                    <div class="card-face card-front">
-                        <div class="card-image">
-                            <img src="assets/images/profile-pics/rishi.jpeg" alt="Rahul Rishi"
-                                 onerror="this.parentElement.innerHTML='<div class=card-ph>RR</div>'">
-                        </div>
-                        <div class="card-front-info">
-                            <h3>Rahul Rishi</h3>
-                            <p class="card-role">Creative Director</p>
-                        </div>
-                    </div>
-                    <div class="card-face card-back">
-                        <div class="card-back-body">
-                            <p>Creative strategist leading brand identity, narrative design, and integrated marketing for RSX's portfolio companies and client brands across sectors.</p>
-                            <a href="mailto:support@ranshx.com" class="card-cta">Get in Touch</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <p class="section-eyebrow">Track Record</p>
+    <h2 class="section-title">Our Projects</h2>
+    <p class="section-lead">A portfolio of impactful projects across welfare, skilling, culture, and health — funded by Central Government and private corporates.</p>
+  </div>
+  <div class="projects-list">
+    <div class="project-item">
+      <div class="project-type">Central Govt</div>
+      <div class="project-info">
+        <h3>Namami Gange</h3>
+        <p>Cleaning the Holy Ganga River and building Community Toilets for public welfare near the riverfront.</p>
+        <div class="project-meta">
+          <span class="project-tag">📍 Uttar Pradesh</span>
+          <span class="project-tag">🏛️ Central Government</span>
+          <span class="project-tag">Public Welfare</span>
         </div>
+      </div>
+      <div class="project-value">₹60 Cr<span>Project Value</span></div>
     </div>
+    <div class="project-item">
+      <div class="project-type">Central Govt</div>
+      <div class="project-info">
+        <h3>DDUGKY – Skill Training</h3>
+        <p>Deen Dayal Upadhyay Grameen Kaushal Vikas Yojana — fostering and developing skill training for 325 students from Bihar.</p>
+        <div class="project-meta">
+          <span class="project-tag">📍 Bihar</span>
+          <span class="project-tag">🏛️ Ministry of Rural Development</span>
+          <span class="project-tag">325 Students</span>
+        </div>
+      </div>
+      <div class="project-value">₹3.9 Cr<span>Project Value</span></div>
+    </div>
+    <div class="project-item">
+      <div class="project-type">Central Govt</div>
+      <div class="project-info">
+        <h3>Naturopathy Clinic &amp; Yoga Hospital</h3>
+        <p>Financial aid to a Public Health Institute providing naturopathy and yoga treatments to the public near Dahod &amp; Banswara.</p>
+        <div class="project-meta">
+          <span class="project-tag">📍 Dahod, Banswara</span>
+          <span class="project-tag">🏛️ Ministry of Ayush</span>
+          <span class="project-tag">Public Health</span>
+        </div>
+      </div>
+      <div class="project-value">₹2 Cr<span>Project Value</span></div>
+    </div>
+    <div class="project-item">
+      <div class="project-type">Central Govt</div>
+      <div class="project-info">
+        <h3>Cultural Function &amp; Production Grant (CFPG)</h3>
+        <p>Promoting Tribal and other Cultural Heritage through grants, events, and cultural programs.</p>
+        <div class="project-meta">
+          <span class="project-tag">📍 Gujarat &amp; Rajasthan</span>
+          <span class="project-tag">🏛️ Ministry of Culture</span>
+          <span class="project-tag">Cultural Heritage</span>
+        </div>
+      </div>
+      <div class="project-value">₹10 L<span>Project Value</span></div>
+    </div>
+    <div class="project-item">
+      <div class="project-type private">Private Corporate</div>
+      <div class="project-info">
+        <h3>CSR Projects – Water Conservation &amp; Road Safety</h3>
+        <p>Skill Training Initiative covering Water Conservation, Skill Education, Road and Safety Programmes across Gujarat and South Rajasthan.</p>
+        <div class="project-meta">
+          <span class="project-tag">📍 Gujarat &amp; South Rajasthan</span>
+          <span class="project-tag">🏢 Private Corporate</span>
+          <span class="project-tag">CSR</span>
+        </div>
+      </div>
+      <div class="project-value">₹5 Cr<span>Project Value</span></div>
+    </div>
+    <div class="project-item">
+      <div class="project-type private">Private Corporate</div>
+      <div class="project-info">
+        <h3>Life &amp; Employability Skills Training</h3>
+        <p>Enhancing soft skills of 500 students from various Technical Institutions. Sourced from CEN Foundation, NASSCOM, and SAP.</p>
+        <div class="project-meta">
+          <span class="project-tag">📍 Vadodara</span>
+          <span class="project-tag">🏢 CEN Foundation / NASSCOM / SAP</span>
+          <span class="project-tag">500 Beneficiaries</span>
+        </div>
+      </div>
+      <div class="project-value">₹5 L<span>Project Value</span></div>
+    </div>
+  </div>
 </section>
 
-<!-- ===================== CONTACT ===================== -->
-<section class="contact-section" id="contact">
-    <div class="contact-pill contact-pill--a"></div>
-    <div class="contact-pill contact-pill--b"></div>
-    <div class="contact-inner">
-        <div class="contact-left">
-            <span class="eyebrow eyebrow--light">Let's Connect</span>
-            <h2 class="section-display section-display--white">Ready to build<br>something that scales?</h2>
-            <p>Whether you're a founder, operator, or institution — we'd like to understand your goals before recommending anything.</p>
-        </div>
-        <div class="contact-right">
-            <div class="contact-card">
-                <a href="mailto:support@ranshx.com" class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="contact-label">Email</p>
-                        <p class="contact-value">support@ranshx.com</p>
-                    </div>
-                </a>
-                <a href="tel:+919873602717" class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="contact-label">Phone</p>
-                        <p class="contact-value">+91 98736 02717</p>
-                    </div>
-                </a>
-                <a href="tel:+917276136594" class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 012 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="contact-label">Alternate</p>
-                        <p class="contact-value">+91 72761 36594</p>
-                    </div>
-                </a>
-                <a href="https://www.ranshx.com" target="_blank" rel="noopener" class="contact-item">
-                    <div class="contact-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="contact-label">Web</p>
-                        <p class="contact-value">www.ranshx.com</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="section-header" style="text-align:center">
+    <p class="section-eyebrow">Our Clientele</p>
+    <h2 class="section-title">Trusted By</h2>
+  </div>
+  <div class="clients-strip">
+    <div class="client-name">National Fire Safety Institute</div>
+    <div class="client-name">SB Skills Advisory Solutions</div>
+    <div class="client-name">SGR</div>
+    <div class="client-name">Shiksha Foundation</div>
+    <div class="client-name">Emmo Hospitality</div>
+    <div class="client-name">Centum Foundation</div>
+    <div class="client-name">Acharya Consulting</div>
+    <div class="client-name">Centum Learning</div>
+    <div class="client-name">DivyaJyoti Foundation</div>
+    <div class="client-name">Mind &amp; Feeling</div>
+    <div class="client-name">BYVM</div>
+    <div class="client-name">JPM</div>
+    <div class="client-name">Savli ITI (Dist. Vadodara)</div>
+    <div class="client-name">SEDC</div>
+    <div class="client-name">Glorious College</div>
+    <div class="client-name">ITI Gorwa – Banco Products</div>
+  </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-    <div class="footer-main">
-        <div class="footer-top">
-            <div class="footer-brand">
-                <img src="assets/images/logo/rsx_logo_final_white.png" alt="RSX Logo" class="footer-logo-img"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-                <span class="footer-logo-text" style="display:none;">RSX</span>
-                <!-- <span class="footer-tagline">RanShX Global</span> -->
-            </div>
-            <div class="footer-columns">
-                <div class="footer-col">
-                    <p class="footer-col-head">Company</p>
-                    <a href="#">Company Overview</a>
-                    <a href="#">Leadership</a>
-                    <a href="#">Careers ↗</a>
-                    <a href="#">Media</a>
-                </div>
-                <div class="footer-col">
-                    <p class="footer-col-head">Verticals</p>
-                    <a href="#">Hospitality &amp; Food</a>
-                    <a href="#">Technology &amp; Digital</a>
-                    <a href="#">PR &amp; Branding</a>
-                    <a href="#">HR &amp; Compliance</a>
-                </div>
-                <div class="footer-col">
-                    <p class="footer-col-head">Resources</p>
-                    <a href="#">Client Stories</a>
-                    <a href="#">Insights</a>
-                    <a href="#">SPEED Approach</a>
-                    <a href="#">Locations</a>
-                </div>
-                <div class="footer-col">
-                    <p class="footer-col-head">Legal</p>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
-                    <a href="#">Cookie Settings</a>
-                    <a href="#">Accessibility</a>
-                </div>
-            </div>
-        </div>
+<!-- BRANCHES -->
+<section id="branches">
+  <div class="section-header">
+    <p class="section-eyebrow">Our Presence</p>
+    <h2 class="section-title">Branch Locations</h2>
+    <p class="section-lead">Head Office in Vadodara, Gujarat with branches spanning six states and union territories across India.</p>
+  </div>
+  <div class="branches-grid">
+    <div class="branch-card">
+      <h3>🟠 Gujarat (HQ)</h3>
+      <ul>
+        <li>Vadodara (Head Office)</li>
+        <li>Ahmedabad</li><li>Surat</li><li>Rajkot</li><li>Vapi</li>
+        <li>Valsad</li><li>Junagadh</li><li>Pipava</li><li>Jamnagar</li>
+      </ul>
     </div>
-    <div class="footer-bottom">
-        <span>© 2026 RSX — RanShX Global. All rights reserved.</span>
-        <div class="footer-social">
-            <a href="#" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
-                    <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-                </svg>
-            </a>
-            <a href="#" aria-label="Twitter / X">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
-                </svg>
-            </a>
-        </div>
+    <div class="branch-card">
+      <h3>🔵 Rajasthan</h3>
+      <ul>
+        <li>Udaipur</li><li>Jaipur</li><li>Jodhpur</li><li>Ajmer</li>
+        <li>Pali</li><li>Jhunjhunu</li><li>Hanumangadh</li>
+      </ul>
     </div>
+    <div class="branch-card">
+      <h3>🟡 Maharashtra</h3>
+      <ul>
+        <li>Mumbai</li><li>Pune</li><li>Nagpur</li><li>Nasik</li><li>Yavatmal</li>
+      </ul>
+    </div>
+    <div class="branch-card">
+      <h3>🟢 Other States</h3>
+      <ul>
+        <li>Indore, Bhopal, Ujjain (MP)</li>
+        <li>Delhi NCR</li>
+        <li>Diu &amp; Daman</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrapper">
+    <div class="contact-left">
+      <p class="section-eyebrow">Get In Touch</p>
+      <h2>Let's Build Something That Matters</h2>
+      <p>Whether you're a corporate looking for CSR implementation partners or an NGO seeking project support — we're here to help you create lasting impact.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>Head Office</strong>
+            <span>9/A1, Manorath Compound, Behind Natraj Cinema,<br/>Pratapgunj, Vadodara 390002, Gujarat, India</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <strong>Phone</strong>
+            <span>+91 94083 41875 · +91 87584 48994</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <span>hema@hnvyasprojects.com<br/>hemavyas@gmail.com</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🌐</div>
+          <div class="contact-item-text">
+            <strong>Website</strong>
+            <span>www.hnvyasprojects.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <h3>Send Us a Message</h3>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Your full name" />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@organisation.com" />
+      </div>
+      <div class="form-group">
+        <label>Organisation</label>
+        <input type="text" placeholder="Company / Trust / NGO name" />
+      </div>
+      <div class="form-group">
+        <label>I am looking for</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>CSR Strategy &amp; Implementation</option>
+          <option>NGO / Trust Registration</option>
+          <option>Project Funding Support</option>
+          <option>HR &amp; Manpower Services</option>
+          <option>Documentation &amp; Compliance</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your requirement..."></textarea>
+      </div>
+      <button class="form-submit">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <span>H. N. Vyas Projects Pvt. Ltd.</span><br/>
+    Part of the <span>Vyas Group</span>
+  </div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#clients">Clients</a>
+    <a href="#branches">Branches</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2024 H.N. Vyas Projects Pvt. Ltd. All rights reserved.</div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="js/main.js"></script>
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // Contact form submit mock
+  document.querySelector('.form-submit').addEventListener('click', function() {
+    this.textContent = '✓ Message Sent!';
+    this.style.background = '#2d7a45';
+    setTimeout(() => {
+      this.textContent = 'Send Message →';
+      this.style.background = '';
+    }, 3000);
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.service-card, .spec-card, .project-item, .branch-card, .about-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
