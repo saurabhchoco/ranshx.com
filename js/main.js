@@ -42,8 +42,11 @@ gsap.registerPlugin(ScrollTrigger);
     const COLORS = () => LOGO_COLORS;
 
     function resize() {
-        W = canvas.width  = canvas.offsetWidth;
-        H = canvas.height = canvas.offsetHeight;
+        const hero = canvas.closest('.hero');
+        W = canvas.width  = hero.clientWidth;
+        H = canvas.height = hero.clientHeight;
+        canvas.style.width  = W + 'px';
+        canvas.style.height = H + 'px';
     }
 
     function randomBetween(a, b) { return a + Math.random() * (b - a); }
@@ -226,11 +229,13 @@ gsap.from(".v-card", {
     y: 40, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power3.out",
     clearProps: "opacity,transform"
 });
-gsap.from(".h-item", {
-    scrollTrigger: { trigger: ".h-accordion", start: "top 82%" },
-    y: 20, opacity: 0, duration: 0.55, stagger: 0.08, ease: "power3.out",
-    clearProps: "opacity,transform"
-});
+if (document.querySelector(".h-accordion")) {
+    gsap.from(".h-item", {
+        scrollTrigger: { trigger: ".h-accordion", start: "top 82%" },
+        y: 20, opacity: 0, duration: 0.55, stagger: 0.08, ease: "power3.out",
+        clearProps: "opacity,transform"
+    });
+}
 
 
 /* =========================================================
@@ -352,6 +357,7 @@ function switchPanel(targetClass) {
 
 navItems.forEach(item => {
     item.addEventListener("mouseenter", () => {
+        if (window.innerWidth <= 1024) return;
         isHoveringNav = true;
         navItems.forEach(li => li.classList.remove("mega-active"));
         item.classList.add("mega-active");
@@ -364,8 +370,12 @@ navItems.forEach(item => {
     });
 });
 
-megaInner.addEventListener("mouseenter", () => { isHoveringMega = true; });
+megaInner.addEventListener("mouseenter", () => {
+    if (window.innerWidth <= 1024) return;
+    isHoveringMega = true;
+});
 megaInner.addEventListener("mouseleave", () => {
+    if (window.innerWidth <= 1024) return;
     isHoveringMega = false;
     setTimeout(checkClose, 60);
 });
@@ -392,6 +402,36 @@ document.querySelectorAll(".has-dropdown > a").forEach(link => {
         if (window.innerWidth <= 1024) {
             e.preventDefault();
             link.parentElement.classList.toggle("open");
+        }
+    });
+});
+
+// Mobile nav item tap — show submenu inline
+document.querySelectorAll(".nav-menu li[data-mega] > a").forEach(link => {
+    link.addEventListener("click", e => {
+        if (window.innerWidth > 1024) return;
+        e.preventDefault();
+        const li = link.parentElement;
+        const targetClass = li.dataset.mega;
+        const panel = document.querySelector(`.mega-content.${targetClass}`);
+        if (!panel) return;
+
+        // Close all other panels
+        document.querySelectorAll(".mega-content").forEach(p => {
+            p.style.display = "none";
+            p.classList.remove("active");
+        });
+        document.querySelectorAll(".nav-menu li[data-mega]").forEach(l => {
+            l.classList.remove("mobile-open");
+        });
+
+        // Toggle current
+        if (li.classList.contains("mobile-open")) {
+            li.classList.remove("mobile-open");
+        } else {
+            li.classList.add("mobile-open");
+            panel.style.display = "block";
+            panel.classList.add("active");
         }
     });
 });
