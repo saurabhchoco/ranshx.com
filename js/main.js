@@ -24,8 +24,7 @@ gsap.registerPlugin(ScrollTrigger);
 const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
 heroTl
-    .from(".hero-kicker",   { y: 16, opacity: 0, duration: 0.55 })
-    .from(".hero h1",       { y: 50, opacity: 0, duration: 0.9 }, "-=0.2")
+    .from(".hero h1",       { y: 50, opacity: 0, duration: 0.9 })
     .from(".hero-sub",      { y: 24, opacity: 0, duration: 0.7 }, "-=0.5")
     .from(".btn-primary",   { y: 16, opacity: 0, duration: 0.5 }, "-=0.4")
     .from(".hero-pill--a",  { x: 40, opacity: 0, duration: 0.7 }, "-=0.6")
@@ -63,13 +62,20 @@ gsap.from(".value-card", {
 /* =========================================================
    VERTICALS SECTION — SCROLL REVEAL
    ========================================================= */
-gsap.from(".h-accordion-section .section-header", {
-    scrollTrigger: { trigger: ".h-accordion-section", start: "top 85%" },
+   gsap.from(".verticals-header", {
+    scrollTrigger: { trigger: ".verticals-section", start: "top 85%" },
     y: 30, opacity: 0, duration: 0.7, ease: "power3.out"
+});
+
+gsap.from(".v-card", {
+    scrollTrigger: { trigger: ".verticals-grid", start: "top 82%" },
+    y: 40, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power3.out",
+    clearProps: "opacity,transform"
 });
 gsap.from(".h-item", {
     scrollTrigger: { trigger: ".h-accordion", start: "top 82%" },
-    y: 30, opacity: 0, duration: 0.55, stagger: 0.08, ease: "power3.out"
+    y: 20, opacity: 0, duration: 0.55, stagger: 0.08, ease: "power3.out",
+    clearProps: "opacity,transform"
 });
 
 
@@ -120,25 +126,6 @@ document.querySelectorAll(".team-card").forEach(card => {
         if (window.innerWidth <= 1024) card.classList.toggle("active");
     });
 });
-
-
-/* =========================================================
-   HORIZONTAL ACCORDION — HOVER (GSAP)
-   ========================================================= */
-hItems.forEach(item => {
-    const p = item.querySelector(".h-content p");
-
-    item.addEventListener("mouseenter", () => {
-        gsap.to(item, { scale: 1.01, duration: 0.3, ease: "power3.out" });
-        gsap.to(p,    { opacity: 1, y: 0,  duration: 0.3, ease: "power3.out" });
-    });
-
-    item.addEventListener("mouseleave", () => {
-        gsap.to(item, { scale: 1,  duration: 0.25, ease: "power2.out" });
-        gsap.to(p,    { opacity: 0, y: 10, duration: 0.25, ease: "power2.out" });
-    });
-});
-
 
 /* =========================================================
    VERTICAL ACCORDION — AUTO-CLOSE OTHERS (GSAP)
