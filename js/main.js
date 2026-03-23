@@ -129,6 +129,10 @@ gsap.registerPlugin(ScrollTrigger);
 
     /* --- Main render loop --- */
     function draw() {
+        if (document.hidden) {
+            animId = requestAnimationFrame(draw);
+            return;
+        }
         ctx.clearRect(0, 0, W, H);
 
         // Base background — dark or light
@@ -365,6 +369,7 @@ navItems.forEach(item => {
         switchPanel(item.dataset.mega);
     });
     item.addEventListener("mouseleave", () => {
+        if (window.innerWidth <= 1024) return;
         isHoveringNav = false;
         setTimeout(checkClose, 60);
     });

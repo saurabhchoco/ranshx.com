@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why RSX — RanShX Global</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: #0d0d0d;
+            padding: clamp(80px, 10vw, 130px) var(--pad) clamp(60px, 8vw, 100px);
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: "";
+            position: absolute; width: 700px; height: 700px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(230,58,30,.08) 0%, transparent 70%);
+            bottom: -200px; right: -150px; pointer-events: none;
+        }
+        .page-hero-inner { max-width: var(--max); margin: auto; position: relative; z-index: 1; }
+        .page-hero h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900; font-size: clamp(52px, 8vw, 96px);
+            line-height: .95; letter-spacing: -.02em;
+            text-transform: uppercase; color: #fff; margin-top: 16px;
+        }
+        .page-hero h1 span {
+            -webkit-text-stroke: 3px rgba(255,255,255,.7);
+            color: transparent; display: block;
+        }
+        .page-hero p {
+            margin-top: 24px; font-size: clamp(15px, 2vw, 18px);
+            color: rgba(255,255,255,.6); line-height: 1.75; max-width: 620px;
+        }
+        .hero-cta { display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
+        .btn-ghost-white {
+            display: inline-block; padding: 14px 28px;
+            border: 1.5px solid rgba(255,255,255,.2); border-radius: 8px;
+            font-size: 14px; font-weight: 600; color: rgba(255,255,255,.7);
+            text-decoration: none; transition: border-color .2s, color .2s;
+        }
+        .btn-ghost-white:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
+        /* ── THE PROBLEM ── */
+        .problem-section {
+            padding: clamp(60px, 8vw, 100px) var(--pad);
+            background: var(--bg); transition: background .3s;
+        }
+        .problem-inner { max-width: var(--max); margin: auto; }
+        .problem-header { max-width: 720px; margin-bottom: 60px; }
+        .problem-header h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800; font-size: clamp(32px, 4vw, 52px);
+            margin-top: 8px; line-height: 1.05;
+        }
+        .problem-header p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-top: 16px; }
+        .problem-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+        }
+        .problem-card {
+            padding: 32px; border: 1px solid var(--border); border-radius: var(--radius);
+            background: var(--bg-soft); transition: background .3s, border-color .3s;
+        }
+        .problem-icon {
+            width: 48px; height: 48px; border-radius: 10px;
+            background: rgba(230,58,30,.08); border: 1px solid rgba(230,58,30,.15);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+        }
+        .problem-icon svg { width: 22px; height: 22px; stroke: var(--red); }
+        .problem-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+        .problem-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+        /* ── DIFFERENTIATORS ── */
+        .diff-section {
+            padding: clamp(60px, 8vw, 100px) var(--pad);
+            background: var(--bg-soft); transition: background .3s;
+        }
+        .diff-inner { max-width: var(--max); margin: auto; }
+        .diff-header { margin-bottom: 64px; }
+        .diff-header h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800; font-size: clamp(32px, 4vw, 52px);
+            margin-top: 8px; line-height: 1.05;
+        }
+        .diff-header p { font-size: 16px; color: var(--muted); line-height: 1.75; margin-top: 16px; max-width: 600px; }
+
+        .diff-list { display: flex; flex-direction: column; gap: 0; }
+        .diff-item {
+            display: grid; grid-template-columns: 60px 1fr 1fr;
+            gap: 48px; padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: start; transition: border-color .3s;
+        }
+        .diff-item:last-child { border-bottom: none; }
+        .diff-num {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 48px; font-weight: 900;
+            color: var(--border); line-height: 1;
+            transition: color .3s;
+        }
+        .diff-item:hover .diff-num { color: rgba(230,58,30,.3); }
+        .diff-left h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(22px, 2.5vw, 32px); font-weight: 800;
+            text-transform: uppercase; margin-bottom: 12px; color: var(--text);
+        }
+        .diff-left p { font-size: 15px; color: var(--muted); line-height: 1.75; }
+        .diff-right { padding-top: 6px; }
+        .diff-vs {
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .diff-vs-item {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+        }
+        .diff-vs-label {
+            font-size: 10px; font-weight: 700; letter-spacing: .15em;
+            text-transform: uppercase; margin-bottom: 6px;
+        }
+        .diff-vs-label.rsx { color: var(--red); }
+        .diff-vs-label.others { color: var(--muted); }
+        .diff-vs-text {
+            font-size: 13px; color: var(--muted); line-height: 1.6;
+            padding: 12px 16px; border-radius: 8px;
+        }
+        .diff-vs-text.rsx {
+            background: rgba(230,58,30,.06);
+            border: 1px solid rgba(230,58,30,.15);
+            color: var(--text);
+        }
+        .diff-vs-text.others {
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        /* ── WHO WE WORK WITH ── */
+        .clients-section {
+            padding: clamp(60px, 8vw, 100px) var(--pad);
+            background: #0d0d0d; color: #fff;
+        }
+        .clients-inner { max-width: var(--max); margin: auto; }
+        .clients-header { margin-bottom: 56px; max-width: 640px; }
+        .clients-header h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800; font-size: clamp(32px, 4vw, 52px);
+            color: #fff; margin-top: 8px; line-height: 1.05;
+        }
+        .clients-header p { font-size: 16px; color: rgba(255,255,255,.5); line-height: 1.75; margin-top: 16px; }
+        .clients-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+        }
+        .client-type {
+            padding: 40px 36px; background: #111; border: 1px solid #1e1e1e;
+            transition: background .25s;
+        }
+        .client-type:hover { background: #161616; }
+        .client-type-icon {
+            width: 52px; height: 52px; border-radius: 12px;
+            background: rgba(230,58,30,.1); border: 1px solid rgba(230,58,30,.2);
+            display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
+        }
+        .client-type-icon svg { width: 24px; height: 24px; stroke: var(--red); }
+        .client-type h4 { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+        .client-type p { font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.7; margin-bottom: 20px; }
+        .client-type-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .client-tag {
+            padding: 4px 12px; border-radius: 30px;
+            border: 1px solid #2a2a2a;
+            font-size: 11px; font-weight: 600; letter-spacing: .08em;
+            color: #555;
+        }
+
+        /* ── HONEST SECTION ── */
+        .honest-section {
+            padding: clamp(60px, 8vw, 100px) var(--pad);
+            background: var(--bg); transition: background .3s;
+        }
+        .honest-inner {
+            max-width: var(--max); margin: auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+        }
+        .honest-left h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800; font-size: clamp(32px, 4vw, 48px); margin-bottom: 24px; line-height: 1.05;
+        }
+        .honest-left p { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+        .not-for-list { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+        .not-for-item {
+            display: flex; gap: 16px; align-items: flex-start;
+            padding: 20px; border: 1px solid var(--border); border-radius: 10px;
+            background: var(--bg-soft); transition: background .3s, border-color .3s;
+        }
+        .not-for-x {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: rgba(230,58,30,.08); border: 1px solid rgba(230,58,30,.2);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-size: 12px; color: var(--red); font-weight: 700;
+        }
+        .not-for-item p { font-size: 14px; color: var(--muted); line-height: 1.65; margin: 0; }
+        .not-for-item strong { color: var(--text); }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: clamp(60px, 8vw, 100px) var(--pad);
+            background: var(--bg-soft); transition: background .3s;
+        }
+        .cta-inner {
+            max-width: var(--max); margin: auto;
+            display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center;
+        }
+        .cta-left h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800; font-size: clamp(28px, 4vw, 44px); margin-bottom: 12px; line-height: 1.1;
+        }
+        .cta-left p { font-size: 16px; color: var(--muted); line-height: 1.7; }
+        .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn-secondary {
+            display: inline-block; padding: 14px 28px;
+            border: 1.5px solid var(--border); border-radius: 8px;
+            font-size: 14px; font-weight: 600; color: var(--text);
+            text-decoration: none; transition: border-color .2s, color .2s;
+        }
+        .btn-secondary:hover { border-color: var(--red); color: var(--red); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .hamburger { display: flex; }
+            .nav-container { grid-template-columns: auto 1fr auto; }
+            .btn-outline { padding: 8px 12px; font-size: 11px; }
+            .btn-outline svg { display: none; }
+            .nav-wrapper {
+                position: fixed; top: 64px; left: 0; width: 100%;
+                background: #ffffff; border-top: 1px solid #e3e3e3;
+                max-height: 0; overflow: hidden;
+                transition: max-height .35s ease; z-index: 998;
+            }
+            body.dark-mode .nav-wrapper { background: #0c0c0c; border-color: #282828; }
+            .nav-wrapper.open { max-height: 80vh; }
+            .nav-menu { flex-direction: column; gap: 0; padding: 16px 20px; }
+            .nav-menu li { padding: 14px 0; border-bottom: 1px solid #e3e3e3; width: 100%; }
+            .nav-menu li:last-child { border-bottom: none; }
+            .problem-grid { grid-template-columns: 1fr 1fr; }
+            .diff-item { grid-template-columns: 48px 1fr; gap: 24px; }
+            .diff-right { grid-column: 2; }
+            .clients-grid { grid-template-columns: 1fr 1fr; }
+            .honest-inner { grid-template-columns: 1fr; gap: 48px; }
+            .cta-inner { grid-template-columns: 1fr; gap: 32px; }
+        }
+        @media (max-width: 768px) {
+            .problem-grid { grid-template-columns: 1fr; }
+            .diff-item { grid-template-columns: 1fr; gap: 16px; }
+            .diff-right { grid-column: 1; }
+            .diff-vs-item { grid-template-columns: 1fr; }
+            .clients-grid { grid-template-columns: 1fr; }
+            .btn-outline { padding: 7px 10px; font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="logo">
+            <img src="assets/images/logo/rsx_logo_final_dark.png" alt="RSX Logo"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+            <span class="logo-text" style="display:none;">RSX</span>
+        </a>
+        <nav class="nav-wrapper" id="navWrapper">
+            <ul class="nav-menu">
+                <li data-mega="business"><a href="index.html#about">Business</a></li>
+                <li data-mega="about"><a href="index.html#team">About</a></li>
+                <li data-mega="solutions"><a href="index.html#verticals">Solutions</a></li>
+                <li data-mega="insights"><a href="insights.html">Insights</a></li>
+                <li><a href="careers.html">Careers</a></li>
+            </ul>
+        </nav>
+        <div class="nav-controls">
+            <a href="index.html#contact" class="btn-outline">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+                Contact Us
+            </a>
+            <div class="theme-switch">
+                <input type="checkbox" id="themeToggle">
+                <label for="themeToggle" class="toggle-slider" title="Toggle theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                    </svg>
+                </label>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MEGA MENU -->
+    <div class="mega-menu" id="megaMenu">
+        <div class="mega-inner" id="megaInner">
+            <div class="mega-content business active">
+                <div class="mega-grid">
+                    <div class="mega-section">
+                        <p class="mega-label">Overview</p>
+                        <h3>RanShX Global</h3>
+                        <div class="mega-divider"></div>
+                        <a href="index.html#about" class="mega-link">Learn More</a>
+                    </div>
+                    <div>
+                        <p class="mega-label">THE GROUP</p>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li><a href="index.html#about">Company Overview</a></li>
+                                <li><a href="index.html#model">Our Model</a></li>
+                                <li><a href="index.html#team">Leadership</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="speed.html">SPEED Approach</a></li>
+                                <li><a href="why-rsx.html">Why RSX</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mega-content about">
+                <div class="mega-grid">
+                    <div class="mega-section">
+                        <p class="mega-label">Who We Are</p>
+                        <h3>About RSX</h3>
+                        <div class="mega-divider"></div>
+                        <a href="index.html#team" class="mega-link">Our Story</a>
+                    </div>
+                    <div>
+                        <p class="mega-label">The Group</p>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li><a href="index.html#team">Our Story</a></li>
+                                <li><a href="index.html#team">Leadership Team</a></li>
+                                <li><a href="index.html#team">Culture &amp; Values</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="index.html#contact">Locations</a></li>
+                                <li><a href="insights.html">Press &amp; Media</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mega-content solutions">
+                <div class="mega-grid">
+                    <div class="mega-section">
+                        <p class="mega-label">What We Do</p>
+                        <h3>Our Verticals</h3>
+                        <div class="mega-divider"></div>
+                        <a href="index.html#verticals" class="mega-link">See All</a>
+                    </div>
+                    <div>
+                        <p class="mega-label">Business Verticals</p>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li><a href="index.html#verticals">Hospitality &amp; Food</a></li>
+                                <li><a href="index.html#verticals">Technology &amp; Digital</a></li>
+                                <li><a href="index.html#verticals">PR, Branding &amp; Marketing</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="index.html#verticals">Events &amp; Experiential</a></li>
+                                <li><a href="index.html#verticals">HR, Manpower &amp; Compliance</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mega-content insights">
+                <div class="mega-grid">
+                    <div class="mega-section">
+                        <p class="mega-label">Resources</p>
+                        <h3>Insights</h3>
+                        <div class="mega-divider"></div>
+                        <a href="insights.html" class="mega-link">View All</a>
+                    </div>
+                    <div>
+                        <p class="mega-label">Explore</p>
+                        <div class="mega-divider"></div>
+                        <div class="mega-columns">
+                            <ul>
+                                <li><a href="insights.html">Client Stories</a></li>
+                                <li><a href="insights.html">Case Studies</a></li>
+                                <li><a href="insights.html">Industry Reports</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="insights.html">Blog &amp; Articles</a></li>
+                                <li><a href="insights.html">Media &amp; Press</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ===================== PAGE HERO ===================== -->
+<section class="page-hero">
+    <div class="page-hero-inner">
+        <span class="eyebrow eyebrow--light">The Case for RSX</span>
+        <h1>Why Choose<br><span>RSX.</span></h1>
+        <p>There are many consultants, agencies, and service providers in every category RSX operates in. Here is an honest account of what makes RSX different — and who RSX is and isn't right for.</p>
+        <div class="hero-cta">
+            <a href="index.html#contact" class="btn-primary">Start a Conversation</a>
+            <a href="speed.html" class="btn-ghost-white">See Our Approach →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== THE PROBLEM ===================== -->
+<section class="problem-section">
+    <div class="problem-inner">
+        <div class="problem-header">
+            <span class="eyebrow">The Problem We Solve</span>
+            <h2>Fragmentation Is the Real Enemy of Growth.</h2>
+            <p>Most businesses don't fail because of bad ideas or weak markets. They stall because the people responsible for executing their growth — vendors, consultants, agencies — are operating in silos with no shared accountability for the outcome.</p>
+        </div>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                    </svg>
+                </div>
+                <h4>Too Many Vendors</h4>
+                <p>A technology agency that doesn't understand compliance. A branding firm that ignores operations. An HR consultant who's never worked inside a hospitality business. Each is doing their job — but nobody owns the outcome.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <h4>Strategy Without Execution</h4>
+                <p>Consultants who produce excellent frameworks and then disappear. Recommendations handed to junior teams who weren't part of the thinking. A 90-day engagement that produces a document, not a result.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                </div>
+                <h4>Governance Added Too Late</h4>
+                <p>Compliance requirements that surface mid-project. Regulatory gaps discovered after systems are built. HR structures that weren't designed for the actual business. Problems that cost three times more to fix than to prevent.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== DIFFERENTIATORS ===================== -->
+<section class="diff-section">
+    <div class="diff-inner">
+        <div class="diff-header">
+            <span class="eyebrow">The RSX Difference</span>
+            <h2>What Makes RSX Different in Practice.</h2>
+            <p>Not in marketing language — but in how engagements are actually structured, staffed, and delivered.</p>
+        </div>
+        <div class="diff-list">
+
+            <div class="diff-item">
+                <div class="diff-num">01</div>
+                <div class="diff-left">
+                    <h3>Promoter-Led Delivery</h3>
+                    <p>Every RSX engagement is owned by a senior promoter from start to finish. The person who scopes the engagement is the person who runs it. There are no handoffs to junior teams, no account managers acting as intermediaries, no "team leads" who've never met the client.</p>
+                    <p>This isn't a staffing preference — it's a structural commitment. Accountability cannot be delegated.</p>
+                </div>
+                <div class="diff-right">
+                    <div class="diff-vs">
+                        <div class="diff-vs-item">
+                            <div>
+                                <p class="diff-vs-label rsx">RSX</p>
+                                <p class="diff-vs-text rsx">Senior promoter owns the engagement end-to-end. Same person in the room on day one and day ninety.</p>
+                            </div>
+                            <div>
+                                <p class="diff-vs-label others">Typical Consultant</p>
+                                <p class="diff-vs-text others">Partner sells the engagement. Junior team delivers. Partner re-appears for the final presentation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diff-item">
+                <div class="diff-num">02</div>
+                <div class="diff-left">
+                    <h3>Integrated Across Verticals</h3>
+                    <p>RSX operates five verticals — Hospitality, Technology, Branding, Events, and Compliance — as a single integrated group. When a client needs capabilities across multiple functions, RSX deploys them simultaneously under one governance structure.</p>
+                    <p>This eliminates the coordination overhead, vendor conflicts, and accountability gaps that come with managing five separate providers.</p>
+                </div>
+                <div class="diff-right">
+                    <div class="diff-vs">
+                        <div class="diff-vs-item">
+                            <div>
+                                <p class="diff-vs-label rsx">RSX</p>
+                                <p class="diff-vs-text rsx">One team. One contract. One point of accountability. All verticals move together under a single governance framework.</p>
+                            </div>
+                            <div>
+                                <p class="diff-vs-label others">Typical Approach</p>
+                                <p class="diff-vs-text others">Five vendors. Five contracts. Five points of failure. Client spends half their time managing coordination.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diff-item">
+                <div class="diff-num">03</div>
+                <div class="diff-left">
+                    <h3>Governance Built In</h3>
+                    <p>Compliance, regulatory structure, and accountability frameworks are designed into every RSX engagement from day one — not retrofitted when problems emerge. RSX's Compliance vertical is not a separate service; it's an embedded function in every project.</p>
+                    <p>For Indian businesses in particular, where regulatory complexity is high and compliance failures are expensive, this is not optional.</p>
+                </div>
+                <div class="diff-right">
+                    <div class="diff-vs">
+                        <div class="diff-vs-item">
+                            <div>
+                                <p class="diff-vs-label rsx">RSX</p>
+                                <p class="diff-vs-text rsx">Compliance architecture designed at project inception. Governance checkpoints built into every milestone.</p>
+                            </div>
+                            <div>
+                                <p class="diff-vs-label others">Typical Approach</p>
+                                <p class="diff-vs-text others">Compliance reviewed at the end, or only when a problem forces it. Often treated as a legal formality rather than an operating function.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diff-item">
+                <div class="diff-num">04</div>
+                <div class="diff-left">
+                    <h3>Outcomes, Not Activities</h3>
+                    <p>RSX scopes every engagement around measurable outcomes agreed at the outset. Not deliverables. Not hours. Not activities. What will have demonstrably changed when the engagement ends — and how will we know?</p>
+                    <p>This changes how work is planned, how progress is reported, and how success is defined. It also means RSX declines engagements where outcomes cannot be clearly defined.</p>
+                </div>
+                <div class="diff-right">
+                    <div class="diff-vs">
+                        <div class="diff-vs-item">
+                            <div>
+                                <p class="diff-vs-label rsx">RSX</p>
+                                <p class="diff-vs-text rsx">Engagement scoped around specific, measurable outcomes. Progress tracked against outcomes — not activity logs.</p>
+                            </div>
+                            <div>
+                                <p class="diff-vs-label others">Typical Approach</p>
+                                <p class="diff-vs-text others">Deliverables defined by documents, reports, and hours billed. Success defined by completion, not by impact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================== WHO WE WORK WITH ===================== -->
+<section class="clients-section">
+    <div class="clients-inner">
+        <div class="clients-header">
+            <span class="eyebrow eyebrow--light">Who We Work With</span>
+            <h2>RSX Works Best With Specific Types of Clients.</h2>
+            <p>We're not the right partner for every engagement. Here is an honest description of who we work with and why.</p>
+        </div>
+        <div class="clients-grid">
+            <div class="client-type">
+                <div class="client-type-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+                        <line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+                    </svg>
+                </div>
+                <h4>Founders &amp; Operators</h4>
+                <p>Early and growth-stage founders who need to build infrastructure, governance, and operations simultaneously — and want a senior partner, not a vendor.</p>
+                <div class="client-type-tags">
+                    <span class="client-tag">Early Stage</span>
+                    <span class="client-tag">Growth Stage</span>
+                    <span class="client-tag">Series A–C</span>
+                </div>
+            </div>
+            <div class="client-type">
+                <div class="client-type-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                    </svg>
+                </div>
+                <h4>Established Businesses</h4>
+                <p>Companies entering new verticals, geographies, or operating models who need cross-functional capability without building internal teams for every function.</p>
+                <div class="client-type-tags">
+                    <span class="client-tag">Expansion</span>
+                    <span class="client-tag">Transformation</span>
+                    <span class="client-tag">New Markets</span>
+                </div>
+            </div>
+            <div class="client-type">
+                <div class="client-type-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </div>
+                <h4>Institutions &amp; Groups</h4>
+                <p>Larger organisations that need a delivery partner with governance depth — for complex programmes where compliance, accountability, and cross-functional execution are non-negotiable.</p>
+                <div class="client-type-tags">
+                    <span class="client-tag">Enterprises</span>
+                    <span class="client-tag">Family Offices</span>
+                    <span class="client-tag">Institutions</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== HONEST SECTION ===================== -->
+<section class="honest-section">
+    <div class="honest-inner">
+        <div class="honest-left">
+            <span class="eyebrow">An Honest Note</span>
+            <h2>RSX Is Not the Right Partner for Everyone.</h2>
+            <p>We believe in being direct about fit before an engagement begins. Here are the situations where RSX is probably not the right choice — and we'd say so in a discovery conversation.</p>
+        </div>
+        <div class="not-for-list">
+            <div class="not-for-item">
+                <div class="not-for-x">✕</div>
+                <p><strong>If you need a cheap vendor.</strong> RSX charges for senior time, integrated capability, and governance rigour. We are not the lowest-cost option in any category we operate in.</p>
+            </div>
+            <div class="not-for-item">
+                <div class="not-for-x">✕</div>
+                <p><strong>If you want a deck, not a result.</strong> RSX builds things that work, not documents that recommend things. If the deliverable is a strategy document, we're not the right fit.</p>
+            </div>
+            <div class="not-for-item">
+                <div class="not-for-x">✕</div>
+                <p><strong>If compliance is optional for you.</strong> Every RSX engagement is governed. If your organisation treats regulatory compliance as a formality, the engagement will be difficult.</p>
+            </div>
+            <div class="not-for-item">
+                <div class="not-for-x">✕</div>
+                <p><strong>If you need a single-function specialist.</strong> RSX is an integrated group. If you need one thing done cheaply by a specialist, a specialist is probably better for that task.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta-section">
+    <div class="cta-inner">
+        <div class="cta-left">
+            <span class="eyebrow">Ready to Talk</span>
+            <h2>Let's Find Out If We're the Right Fit.</h2>
+            <p>Every RSX engagement begins with an honest discovery conversation. We'll understand your context, tell you what we can and can't do, and only propose an engagement if we believe it will produce measurable value.</p>
+        </div>
+        <div class="cta-actions">
+            <a href="index.html#contact" class="btn-primary">Start a Conversation</a>
+            <a href="speed.html" class="btn-secondary">Our Approach →</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+    <div class="footer-main">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="assets/images/logo/rsx_logo_final_white.png" alt="RSX Logo" class="footer-logo-img"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+                <span class="footer-logo-text" style="display:none;">RSX</span>
+            </div>
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <p class="footer-col-head">Company</p>
+                    <a href="index.html#about">Company Overview</a>
+                    <a href="index.html#team">Leadership</a>
+                    <a href="careers.html">Careers ↗</a>
+                    <a href="insights.html">Media</a>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-head">Verticals</p>
+                    <a href="index.html#verticals">Hospitality &amp; Food</a>
+                    <a href="index.html#verticals">Technology &amp; Digital</a>
+                    <a href="index.html#verticals">PR &amp; Branding</a>
+                    <a href="index.html#verticals">HR &amp; Compliance</a>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-head">Resources</p>
+                    <a href="insights.html">Client Stories</a>
+                    <a href="insights.html">Insights</a>
+                    <a href="speed.html">SPEED Approach</a>
+                    <a href="index.html#contact">Locations</a>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-col-head">Legal</p>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Settings</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 RSX — RanShX Global. All rights reserved.</span>
+        <div class="footer-social">
+            <a href="#" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                    <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                </svg>
+            </a>
+            <a href="#" aria-label="Twitter / X">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/nav.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".page-hero h1", { y: 40, opacity: 0, duration: 0.9, ease: "power3.out" });
+gsap.from(".page-hero p",  { y: 20, opacity: 0, duration: 0.7, delay: 0.3, ease: "power2.out" });
+gsap.from(".hero-cta",     { y: 20, opacity: 0, duration: 0.6, delay: 0.5, ease: "power2.out" });
+
+gsap.from(".problem-card", {
+    scrollTrigger: { trigger: ".problem-grid", start: "top 82%" },
+    y: 40, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power3.out"
+});
+
+gsap.from(".diff-item", {
+    scrollTrigger: { trigger: ".diff-list", start: "top 85%" },
+    y: 40, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power3.out"
+});
+
+gsap.from(".client-type", {
+    scrollTrigger: { trigger: ".clients-grid", start: "top 82%" },
+    y: 30, opacity: 0, duration: 0.5, stagger: 0.12, ease: "power3.out"
+});
+
+gsap.from(".not-for-item", {
+    scrollTrigger: { trigger: ".not-for-list", start: "top 82%" },
+    x: 30, opacity: 0, duration: 0.5, stagger: 0.1, ease: "power3.out"
+});
+
+gsap.from(".cta-inner > *", {
+    scrollTrigger: { trigger: ".cta-section", start: "top 82%" },
+    y: 24, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power3.out"
+});
+</script>
+</body>
+</html>
