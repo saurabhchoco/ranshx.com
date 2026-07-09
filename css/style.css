@@ -853,7 +853,7 @@ body.dark-mode .v-card-footer { border-color: #282828; }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
