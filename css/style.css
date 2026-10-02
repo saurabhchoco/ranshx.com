@@ -1567,3 +1567,154 @@ body.dark-mode .v-card-footer { border-color: #282828; }
     .practice-section:nth-of-type(2) { padding:28px 22px; }
     .practice-cta { padding:28px 24px; }
 }
+
+
+/* ===================== PRACTICE LOGICAL VISUAL SYSTEM ===================== */
+.practice-hero {
+    grid-template-columns:minmax(0,1fr) minmax(420px,.9fr);
+    gap:64px;
+    align-items:center;
+}
+.practice-hero-copy { padding-bottom:8px; }
+.practice-visual {
+    min-height:360px;
+    border:1px solid #2b2b2b;
+    background:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
+        #151515;
+    background-size:36px 36px;
+    position:relative;
+    overflow:hidden;
+    padding:22px;
+    color:#fff;
+}
+.practice-visual::before {
+    content:"";
+    position:absolute;
+    width:240px;height:240px;
+    border:1px solid rgba(230,58,30,.28);
+    border-radius:50%;
+    right:-90px;top:-100px;
+}
+.pv-topline {
+    display:flex;justify-content:space-between;align-items:center;
+    color:#777;font-size:9px;font-weight:700;letter-spacing:.18em;
+    position:relative;z-index:2;
+}
+.pv-topline b { color:var(--red);font-size:11px; }
+.pv-hospitality,.pv-tech,.pv-brand,.pv-people { position:relative;height:285px;margin-top:18px; }
+.pv-hotel {
+    position:absolute;left:50%;top:8px;transform:translateX(-50%);
+    width:72%;padding:18px 16px;border:1px solid #444;background:#1b1b1b;
+}
+.pv-hotel i,.pv-tech small { display:block;font-style:normal;font-size:8px;letter-spacing:.18em;color:#777;margin-bottom:7px; }
+.pv-hotel strong { display:block;font-size:18px;letter-spacing:.02em; }
+.pv-hotel span { display:block;color:#999;font-size:10px;margin-top:6px; }
+.pv-node {
+    position:absolute;width:43%;padding:12px 14px;border:1px solid #353535;background:#191919;
+}
+.pv-node b { color:var(--red);font-size:9px;letter-spacing:.12em; }
+.pv-node strong { display:block;font-size:12px;margin:3px 0 4px; }
+.pv-node span { color:#888;font-size:9px;line-height:1.35; }
+.pv-node:nth-of-type(1) { left:0;top:112px; }
+.pv-node:nth-of-type(2) { right:0;top:112px; }
+.pv-node:nth-of-type(3) { left:0;top:204px; }
+.pv-node-wide { right:0;top:204px; }
+.pv-branch { position:absolute;background:#555;z-index:0; }
+.pv-branch-a { width:1px;height:42px;left:28%;top:76px; }
+.pv-branch-b { width:42%;height:1px;left:28%;top:118px; }
+.pv-branch-c { width:1px;height:86px;left:50%;top:118px; }
+
+.pv-tech-layer {
+    width:76%;margin:18px auto 0;padding:14px 16px;border:1px solid #3a3a3a;background:#1a1a1a;
+}
+.pv-tech-layer b { font-size:12px;letter-spacing:.04em; }
+.pv-tech-layer span { display:block;color:#888;font-size:9px;margin-top:6px; }
+.pv-tech-core { border-color:rgba(230,58,30,.55);box-shadow:inset 3px 0 0 var(--red); }
+.pv-tech-connector { width:1px;height:14px;background:#555;margin:auto; }
+.pv-tech-row { display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:14px; }
+.pv-tech-row>div { border:1px solid #333;background:#191919;padding:11px 9px; }
+.pv-tech-row b { font-size:9px;display:block;line-height:1.35; }
+
+.pv-brand { display:flex;align-items:center;justify-content:center; }
+.pv-brand-core {
+    width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:var(--red);font-size:12px;font-weight:800;letter-spacing:.08em;position:relative;z-index:3;
+    box-shadow:0 0 0 12px rgba(230,58,30,.08);
+}
+.pv-brand-ring {
+    position:absolute;border:1px solid rgba(255,255,255,.2);border-radius:50%;
+    display:flex;align-items:flex-start;justify-content:center;padding-top:13px;color:#aaa;
+    font-size:8px;font-weight:700;letter-spacing:.12em;
+}
+.ring-1{width:145px;height:145px}.ring-2{width:195px;height:195px}.ring-3{width:245px;height:245px}.ring-4{width:290px;height:290px}
+.pv-brand-ring span{background:#151515;padding:0 6px;}
+
+.pv-stage { height:170px;position:relative;margin-top:20px; }
+.pv-screen {
+    position:absolute;left:50%;top:8px;transform:translateX(-50%);
+    width:68%;height:105px;border:1px solid #444;background:linear-gradient(145deg,#1e1e1e,#111);
+    display:flex;align-items:center;justify-content:center;text-align:center;font-size:15px;font-weight:800;line-height:1.05;
+    box-shadow:0 18px 30px rgba(0,0,0,.35);
+}
+.pv-screen em { color:var(--red);font-style:normal;margin:0 5px; }
+.pv-floor { position:absolute;left:18%;right:18%;bottom:8px;height:35px;border:1px solid #333;transform:perspective(100px) rotateX(48deg);background:#1a1a1a; }
+.pv-event-flow { display:flex;align-items:center;justify-content:center;gap:8px;font-size:8px;letter-spacing:.12em;color:#bbb; }
+.pv-event-flow i { color:var(--red);font-style:normal; }
+.pv-event-meta { display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:18px; }
+.pv-event-meta b { font-size:8px;padding:6px 8px;border:1px solid #333;color:#777; }
+
+.pv-foundation { width:80%;margin:26px auto 16px;padding:17px;border:1px solid #444;background:#1b1b1b;text-align:center; }
+.pv-foundation strong { display:block;font-size:17px;letter-spacing:.06em; }
+.pv-foundation span { color:#888;font-size:9px;display:block;margin-top:6px; }
+.pv-people-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:7px; }
+.pv-people-grid>div { border:1px solid #333;background:#191919;padding:12px; }
+.pv-people-grid b { color:var(--red);font-size:9px; }
+.pv-people-grid strong { display:block;font-size:10px;margin:3px 0; }
+.pv-people-grid span { color:#888;font-size:8px; }
+
+.capability-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:#333;
+    border:1px solid #333;
+    margin-top:20px;
+}
+.capability-card {
+    min-height:112px;
+    padding:20px 22px;
+    background:#191919;
+    transition:background .2s,transform .2s;
+}
+.capability-card:hover { background:#202020;transform:translateY(-2px); }
+.capability-card b { display:block;font-size:14px;color:#fff;margin-bottom:7px; }
+.capability-card span { display:block;color:#8f8f8f;font-size:11px;line-height:1.5; }
+.practice-section:nth-of-type(2) .capability-grid { background:#333; }
+.practice-section:nth-of-type(2) .capability-card { background:#191919; }
+.practice-section:nth-of-type(2) .capability-card:hover { background:#222; }
+
+@media(max-width:1100px){
+    .practice-hero { grid-template-columns:1fr 1fr;gap:34px; }
+    .capability-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:900px){
+    .practice-hero { grid-template-columns:1fr; }
+    .practice-visual { min-height:330px; }
+}
+@media(max-width:600px){
+    .practice-visual { min-height:300px;padding:16px; }
+    .pv-hospitality,.pv-tech,.pv-brand,.pv-people { height:235px; }
+    .pv-node:nth-of-type(1),.pv-node:nth-of-type(2){top:94px}
+    .pv-node:nth-of-type(3),.pv-node-wide{top:174px}
+    .pv-node{padding:9px;width:46%}
+    .pv-node strong{font-size:10px}.pv-node span{font-size:8px}
+    .pv-hotel{width:78%;padding:12px}
+    .pv-hotel strong{font-size:14px}
+    .pv-tech-row{grid-template-columns:1fr}
+    .pv-tech-row>div{padding:8px}
+    .ring-1{width:120px;height:120px}.ring-2{width:160px;height:160px}.ring-3{width:200px;height:200px}.ring-4{width:238px;height:238px}
+    .pv-brand-core{width:76px;height:76px;font-size:10px}
+    .capability-grid { grid-template-columns:1fr; }
+}
