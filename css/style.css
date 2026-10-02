@@ -1842,3 +1842,46 @@ body.dark-mode .v-card-footer { border-color: #282828; }
         min-height:240px;
     }
 }
+
+/* ===================== PRACTICE TIGHT SPACING ===================== */
+.practice-page { padding-bottom: 52px; }
+.practice-hero { margin-bottom: 38px; padding-top: 44px; padding-bottom: 44px; gap: 42px; }
+.practice-hero .practice-back { margin-bottom: 40px; }
+.practice-hero-media { height: 330px; }
+.practice-visual { min-height: 330px; }
+.practice-section { margin-bottom: 30px; }
+.practice-section-head { gap: 28px; padding-bottom: 14px; }
+.practice-section-head h2 { font-size: clamp(30px, 3.2vw, 44px); }
+.practice-section-head p { font-size: 15px; line-height: 1.48; }
+.practice-section-head::after { margin-top: 12px; }
+.practice-service-grid { margin-top: 8px; }
+.practice-service { padding: 20px; min-height: 118px; }
+.practice-service h3 { margin: 7px 0 6px; font-size: 18px; }
+.practice-service p { font-size: 13px; line-height: 1.45; }
+.capability-grid { margin-top: 14px; }
+.capability-card { min-height: 96px; padding: 17px 18px; }
+.capability-card b { font-size: 13px; margin-bottom: 5px; }
+.capability-card span { font-size: 10.5px; line-height: 1.42; }
+.practice-method { margin-top: 8px; }
+.practice-method-step { padding: 17px 16px; min-height: 96px; }
+.practice-method-step strong { margin-bottom: 5px; font-size: 13px; }
+.practice-method-step span { font-size: 11px; line-height: 1.4; }
+.practice-cta { margin-top: 38px; padding: 30px 34px; }
+.practice-cta p { margin-bottom: 16px; line-height: 1.55; }
+.practice-cta .btn-primary { margin-top: 0; }
+@media(max-width:900px){
+    .practice-hero { gap: 26px; margin-bottom: 32px; }
+    .practice-hero-media { height: 290px; }
+    .practice-visual { min-height: 300px; }
+}
+@media(max-width:600px){
+    .practice-page { padding-bottom: 38px; }
+    .practice-hero { padding-top: 32px; padding-bottom: 36px; margin-bottom: 28px; }
+    .practice-hero .practice-back { margin-bottom: 32px; }
+    .practice-hero-media { height: 220px; }
+    .practice-section { margin-bottom: 24px; }
+    .practice-section-head { gap: 14px; }
+    .practice-service { padding: 17px; min-height: 105px; }
+    .practice-visual { min-height: 280px; }
+    .practice-cta { margin-top: 30px; padding: 26px 22px; }
+}
