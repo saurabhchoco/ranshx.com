@@ -1501,3 +1501,69 @@ body.dark-mode .v-card-footer { border-color: #282828; }
     .practice-hero .practice-back { margin-bottom:40px; }
     .practice-section:nth-of-type(2) { padding:34px 22px; }
 }
+
+/* ===================== PRACTICE COMPACT / VISUAL CONTENT ===================== */
+.practice-page { padding-bottom:70px; }
+.practice-hero {
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
+    gap:54px;
+    align-items:center;
+    padding-top:54px;
+    padding-bottom:54px;
+    margin-bottom:52px;
+}
+.practice-hero > * { max-width:none; }
+.practice-hero .practice-back { grid-column:1 / -1; margin-bottom:0; }
+.practice-hero h1 { margin-bottom:22px; }
+.practice-hero .practice-lead { max-width:720px; }
+.practice-hero-copy { min-width:0; }
+.practice-hero-media {
+    height:360px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);
+    position:relative;
+}
+.practice-hero-media img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    filter:saturate(.82);
+}
+.practice-hero-media::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(0,0,0,.05),rgba(230,58,30,.16));
+    pointer-events:none;
+}
+.practice-section { margin-bottom:42px; }
+.practice-section-head { grid-template-columns:minmax(220px,.55fr) 1.45fr; gap:38px; padding-bottom:18px; }
+.practice-section-head h2 { font-size:clamp(30px,3.4vw,48px); }
+.practice-section-head p { font-size:16px; line-height:1.55; }
+.practice-section-head::after { margin-top:16px; width:42px; height:2px; }
+.practice-service-grid { margin-top:12px; }
+.practice-service { padding:24px; min-height:135px; }
+.practice-service h3 { margin:8px 0 7px; font-size:19px; }
+.practice-service p { font-size:14px; line-height:1.5; }
+.practice-pill-row { margin-top:20px; gap:8px; }
+.practice-pill { padding:8px 12px; font-size:11px; }
+.practice-section:nth-of-type(2) { padding:34px 38px; }
+.practice-method { margin-top:12px; }
+.practice-method-step { padding:20px 18px; min-height:115px; }
+.practice-method-step strong { margin-bottom:7px; }
+.practice-method-step span { font-size:12px; }
+.practice-cta { margin-top:55px; padding:34px 40px; }
+.practice-cta h2 { font-size:clamp(30px,3.4vw,48px); }
+.practice-cta p { margin-bottom:20px; }
+@media(max-width:900px){
+    .practice-hero { grid-template-columns:1fr; gap:28px; }
+    .practice-hero-media { height:300px; }
+}
+@media(max-width:600px){
+    .practice-hero { padding-top:36px; padding-bottom:42px; margin-bottom:38px; }
+    .practice-hero-media { height:230px; }
+    .practice-section:nth-of-type(2) { padding:28px 22px; }
+    .practice-cta { padding:28px 24px; }
+}
