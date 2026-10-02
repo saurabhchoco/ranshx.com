@@ -1842,15 +1842,3 @@ body.dark-mode .v-card-footer { border-color: #282828; }
         min-height:240px;
     }
 }
-
-
-/* Hospitality artwork attribution */
-.practice-visual-credit {
-  margin: 18px auto 0;
-  max-width: 1180px;
-  padding: 0 24px 28px;
-  font-size: 10px;
-  line-height: 1.5;
-  letter-spacing: .04em;
-  opacity: .48;
-}
