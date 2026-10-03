@@ -1885,3 +1885,8 @@ body.dark-mode .v-card-footer { border-color: #282828; }
     .practice-visual { min-height: 280px; }
     .practice-cta { margin-top: 30px; padding: 26px 22px; }
 }
+
+
+/* Practice image alignment */
+.practice-image-strip > :only-child{grid-column:1 / -1;}
+.practice-image-strip > :only-child.practice-image-card--wide{width:100%;}
