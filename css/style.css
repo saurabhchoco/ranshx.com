@@ -1890,3 +1890,13 @@ body.dark-mode .v-card-footer { border-color: #282828; }
 /* Practice image alignment */
 .practice-image-strip > :only-child{grid-column:1 / -1;}
 .practice-image-strip > :only-child.practice-image-card--wide{width:100%;}
+
+
+/* Leadership cards: center the three visible profiles as one balanced group. */
+@media (min-width: 901px) {
+    .team-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 912px;
+        margin-inline: auto;
+    }
+}
