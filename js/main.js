@@ -421,7 +421,9 @@ document.querySelectorAll(".nav-menu li[data-mega] > a").forEach(link => {
         const panel = document.querySelector(`.mega-content.${targetClass}`);
         if (!panel) return;
 
-        // Close all other panels
+        // Toggle the current panel; close the others only when opening this one.
+        const isOpen = li.classList.contains("mobile-open");
+
         document.querySelectorAll(".mega-content").forEach(p => {
             p.style.display = "none";
             p.classList.remove("active");
@@ -430,10 +432,7 @@ document.querySelectorAll(".nav-menu li[data-mega] > a").forEach(link => {
             l.classList.remove("mobile-open");
         });
 
-        // Toggle current
-        if (li.classList.contains("mobile-open")) {
-            li.classList.remove("mobile-open");
-        } else {
+        if (!isOpen) {
             li.classList.add("mobile-open");
             panel.style.display = "block";
             panel.classList.add("active");
